@@ -1,0 +1,32 @@
+{
+  "name": "misfits-prelaunch",
+  "version": "1.0.0",
+  "description": "prelaunch website for a new stacking game",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/akndesign/misfits-prelaunch.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "browser-sync": "^2.26.7",
+    "browsersync": "0.0.1-security",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^8.0.0",
+    "gulp-connect": "^2.2.0",
+    "gulp-sass": "^2.3.2"
+  },
+  "bugs": {
+    "url": "https://github.com/akndesign/misfits-prelaunch/issues"
+  },
+  "homepage": "https://github.com/akndesign/misfits-prelaunch#readme",
+  "dependencies": {
+    "gulp-connect": "^5.7.0"
+  }
+}
