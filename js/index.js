@@ -1,6 +1,27 @@
 (function($) {
   "use strict"; // Start of use strict
 
+
+// stop playing the youtube video when I close the modal
+/*$('#myModal').on('hide.bs.modal', function (e) {
+    $("#myModal iframe").attr("src", $("#myModal iframe").attr("src"));
+});*/
+
+
+var vidUrl = "https://player.vimeo.com/video/224464481?&title=0&byline=0&portrait=0badge=0";
+
+    //Basically stops and starts the video on modal open/close
+    $('#myModal').on('hidden.bs.modal', function (e) {
+      console.log('working too');
+        $("#PlayerID iframe").attr('src','');
+    });
+
+    $('#myModal').on('show.bs.modal', function (e) {
+            console.log('working');
+      $(this).find('iframe').attr('src', vidUrl);
+      /*
+        $("PlayerID iframe").attr('src =', vidUrl);*/
+    });
   // Smooth scrolling using jQuery easing
   $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
     if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
@@ -38,5 +59,5 @@
   navbarCollapse();
   // Collapse the navbar when page is scrolled
   $(window).scroll(navbarCollapse);
-
+    
 })(jQuery); // End of use strict
