@@ -7,7 +7,6 @@
     $("#myModal iframe").attr("src", $("#myModal iframe").attr("src"));
 });*/
 
-
 var vidUrl = "https://player.vimeo.com/video/224464481?&title=0&byline=0&portrait=0badge=0";
 
     //Basically stops and starts the video on modal open/close
@@ -35,6 +34,11 @@ var vidUrl = "https://player.vimeo.com/video/224464481?&title=0&byline=0&portrai
       }
     }
   });
+
+ var images = ['logoicons_01.svg', 'logoicons_02.svg', 'logoicons_03.svg', 'logoicons_04.svg'];
+    
+//Build the img, then do a bit of maths to randomize load and append to a div. Add a touch off css to fade them badboys in all sexy like.
+    $('<img style="width:2.5em;" src="img/' + images[Math.floor(Math.random() * images.length)] + '">').appendTo('.navbar-brand');
 
   // Closes responsive menu when a scroll trigger link is clicked
   $('.js-scroll-trigger').click(function() {
