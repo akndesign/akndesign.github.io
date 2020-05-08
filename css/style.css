@@ -4,20 +4,43 @@ body {
   height: 100%; 
 }
 
-@font-face {
-  font-family: 'F37 Jan';
-  src: url('/fonts/F37Jan-Regular.eot'); /* IE9 Compat Modes */
-  src: url('/fonts/F37Jan-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('/fonts/F37Jan-Regular.woff') format('woff'), /* Modern Browsers */
-       url('/fonts/F37Jan-Regular.woff2') format('woff2'), /* Modern Browsers */
-       url('/fonts/F37Jan-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
-       url('/fonts/F37Jan-Regular.svg#6f19de2552131dbb6612d8d86b4c9c6b') format('svg'); /* Legacy iOS */
-       
-  font-style:   normal;
-  font-weight:  400;
+box-sizing: border-box;
 }
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+@font-face {
+  font-family:'FoundersGrotesk';
+  src: url("../fonts/FoundersGroteskTest-MediumItalic.otf"); /*IE9 Compat Modes */
+  src: url("../fonts/FoundersGroteskWeb-Semibold.eot") format('embedded-opentype'), /* IE6-IE8 */
+       url("../fonts/FoundersGroteskWeb-Semibold.woff") format('woff'), /* Modern Browsers */
+       url("../fonts/FoundersGroteskWeb-Semibold.woff2") format('woff2'), /* Modern Browsers */
+ /* Legacy iOS */
+  font-weight: bold;
+}
+
+/*@font-face {
+  font-family:'Circular';
+  src: url("../fonts/circular-bold.otf"); /*IE9 Compat Modes */
+ /* Legacy iOS 
+  font-weight: bold;
+}*/
+
+h1, h2 {
+  font-family: "FoundersGrotesk", "Helvetica Neue","Helvetica","Arial",sans-serif;
+  font-synthesis: none;
+  -moz-font-feature-settings: 'kern';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+h5{
+  font-size: 0.95rem;
+}
+
 h5, h6 {
-  font-family: 'F37 Jan', "Helvetica Neue","Helvetica","Arial",sans-serif;
+  font-family: "Helvetica",sans-serif;
+  font-weight:700;
   font-synthesis: none;
   -moz-font-feature-settings: 'kern';
   -webkit-font-smoothing: antialiased;
@@ -36,8 +59,14 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: titling-gothic-fb, sans-serif;
-  letter-spacing: 1px; }
+  font-family: FoundersGrotesk, sans-serif;
+  letter-spacing: 1px; 
+
+}
+
+h1 {
+  font-weight: 700;
+  line-height: 1;
 }
 
 p {
@@ -69,6 +98,8 @@ section {
   section h2 {
     font-size: 40px; }
 
+
+
 #mainNav {
   border-color: rgba(34, 34, 34, 0.05);
   background-color: white;
@@ -78,11 +109,20 @@ section {
   font-family: 'Catamaran', 'Helvetica', 'Arial', 'sans-serif';
   font-weight: 200;
   letter-spacing: 1px; }
+
   #mainNav .navbar-brand {
     color: #fdcc52;
     font-family: 'Catamaran', 'Helvetica', 'Arial', 'sans-serif';
     font-weight: 200;
-    letter-spacing: 1px; }
+    letter-spacing: 1px;
+    
+  }
+@media (max-width: 992px) {
+  #mainNav .navbar-brand  {
+  filter: brightness(0%);
+  -webkit-filter: brightness(0);
+}
+}
     #mainNav .navbar-brand:hover, #mainNav .navbar-brand:focus {
       color: #fcbd20; }
   #mainNav .navbar-toggler {
@@ -110,7 +150,7 @@ section {
       border-color: transparent;
       background-color: transparent; }
       #mainNav .navbar-brand {
-        color: fade(white, 70%); }
+        color: fade(black, 70%); }
         #mainNav .navbar-brand:hover, #mainNav .navbar-brand:focus {
           color: white; }
       #mainNav .navbar-nav > li > a,
@@ -123,7 +163,10 @@ section {
         border-color: rgba(34, 34, 34, 0.1);
         background-color: white; }
         #mainNav.navbar-shrink .navbar-brand {
-          color: #222222; }
+          color: #222222; 
+          filter: brightness(0%);
+
+        }
           #mainNav.navbar-shrink .navbar-brand:hover, #mainNav.navbar-shrink .navbar-brand:focus {
             color: #fdcc52; }
         #mainNav.navbar-shrink .navbar-nav > li > a,
@@ -138,12 +181,95 @@ header.masthead {
   width: 100%;
   padding-top: 150px;
   padding-bottom: 100px;
-  color: white;
-  background: #D48973; }
-  header.masthead .header-content {
+  
+
+}
+
+
+.hero {
+  float: left;
+  background-image: url('../img/r_Misfits_30082019_Shot_8_544_cropped.jpg');
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.game-box-container {
+  float: right;
+  width: 50%;
+  margin: 0 auto;
+  padding-right:0;
+  text-align: right;
+}
+
+.game-box-container img {
+  width: 80%;
+/* Required to make image fluid in IE */
+
+img:not(.png) {
+  width: 75%;
+} 
+
+}
+
+
+.splash-header{
+  border-bottom: 10px solid #f8c3a8;
+}
+
+.subhead{
+ float:left;
+ margin-bottom:20px;
+}
+
+.embed-container { 
+    position: relative; 
+    height: 0;
+    max-width: 100%; height: auto; 
+} 
+.embed-container iframe, .embed-container object, .embed-container embed { 
+   position: absolute; 
+   top: 0; 
+   left: 0; 
+   width: 100%; 
+   height: 100%; 
+}
+
+.test-padding {
+  margin-bottom: 60px;
+}
+
+.heading-text {
+  position: absolute;
+   bottom: 0;
+   right: 0;
+
+}
+
+
+.header-content{
+  color: #f8c3a8;
+  position: relative;
+  bottom:0;
+  left: 0;
+  padding:0;
+
+}
+
+.navbar-brand {
+float: left;
+}
+
+  header.masthead  {
     max-width: 500px;
     margin-bottom: 100px;
-    text-align: center; }
+    text-align: center; 
+    display: flex;
+    align-items: center;
+
+  }
     header.masthead .header-content h1 {
       font-size: 30px; }
   header.masthead .device-container {
@@ -166,14 +292,7 @@ header.masthead {
       header.masthead .device-container {
         max-width: 325px; } }
 
-.hero {
-  float: right;
-  width: 865px;
-  height: 777.1px;
-  background-size: 865px 777.1px;
-  background-repeat: no-repeat;
-  background-image: url(/img/misfitsherodraft.png);
-}
+
 
 .modal-dialog {
       max-width: 900px;
@@ -195,10 +314,16 @@ header.masthead {
   opacity:1;
 }
 
+.holds-the-iframe {
+  background:url(../img/ajax-loader-preview.png) center center no-repeat;
+
+}
 
 section.download {
   position: relative;
-  padding: 150px 0; }
+  width: 100%;
+  height: 120vh;
+}
   section.download h2 {
     font-size: 50px;
     margin-top: 0; }
@@ -214,6 +339,9 @@ section.download {
         display: inline-block;
         margin-bottom: 0; } }
   @media (min-width: 768px) {
+    section.download {
+      padding: 20vh 20vh 40vh 20vh;
+    }
     section.download h2 {
       font-size: 70px; } }
      
@@ -391,6 +519,13 @@ footer {
   background: #fdcc52;
   background: -webkit-linear-gradient(#fdcc52, #fdc539);
   background: linear-gradient(#fdcc52, #fdc539); }
+
+.bg-a {
+  background: #10784f;
+  width: 100%;
+  height: 100vh; 
+}
+
 
 .text-primary {
   color: #fdcc52; }

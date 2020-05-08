@@ -27,6 +27,33 @@
     <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet">
 
+    <style>
+    
+    img.bg {
+      /* Set rules to fill background */
+      min-height: 100%;
+      min-width: 1024px;
+      
+      /* Set up proportionate scaling */
+      width: 100%;
+      height: auto;
+      
+      /* Set up positioning */
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+    
+    @media screen and (max-width: 1024px){
+      img.bg {
+        left: 50%;
+        margin-left: -512px; }
+    }
+    
+    #page-wrap { position: relative; width: 400px; margin: 50px auto; padding: 20px; background: white; -moz-box-shadow: 0 0 20px black; -webkit-box-shadow: 0 0 20px black; box-shadow: 0 0 20px black; }
+    p { font: 15px/2 Georgia, Serif; margin: 0 0 30px 0; text-indent: 40px; }
+  </style>
+
     <script src="https://code.iconify.design/1/1.0.3/iconify.min.js"></script>
 
 </head>
@@ -36,12 +63,16 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
         <div class="container">
-            <div><a class="navbar-brand js-scroll-trigger" href="#page-top"></a></div>
+            <div><a class="navbar-brand js-scroll-trigger" href="#page-top">
+              
+              <img style="float:right; width:5em; margin:20px 0px;"; src="./img/misfits_wordmark_only-01.svg";>
+
+            </a></div>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
                 <i class="fas fa-bars"></i>
             </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
+           <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="#download">Download</a>
@@ -57,22 +88,29 @@
         </div>
     </nav>
 
-    <header class="masthead">
+    <head>
+  
+</head>
+
+<body>
+
+    <section class="download bg-a">
         <div class="container h-100">
             <div class="row h-100">
-                <div class="col-lg-5 my-auto">
-                    <div class="device-container">
-                        <figure class="hero">
-                        </figure>
+                <div class="col-lg-5">
+                  <div class="hero"></div></div>
                         <!-- You can hook the "home button" to some JavaScript events or just remove it -->
-                    </div>
-                </div>
-                <svg id="page-bg--top" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 378.14"><title>home-bg--top</title><polygon fill="#43ffdb" points="0 0 520.58 0 600 76.28 561.03 89.22 471.59 140.39 248.51 234.8 28.98 281.25 0 291 0 0"></polygon></svg>
-                <div class="col-lg-7 my-auto">
-                    <div class="header-content mx-auto">
-                        <h1 class="mb-4">Game night has never been so good.</h1>
-                        <h5 class="mb-4">Misfits is a bold, new block game for three to four players. Exclusively launching on Kickstarter.</h5>
-                        <h6 class="mb-4"><a href="" data-toggle="modal" data-backdrop="false" data-src="https://player.vimeo.com/video/224464481?autoplay=1&title=0&byline=0&portrait=0badge=0"data-target="#myModal">Watch The Trailer<span class="iconify" data-icon="simple-line-icons:control-play" data-inline="false"></span></a></h6>
+                    <div class="col-lg-7">
+                        <div class="col col-lg-5 game-box-container game-box"><img src="/img/block_map-01.svg"></div>
+                        <div class="header-content col col-lg-7 order-1">
+                          <a class="splash-logo js-scroll-trigger" href="#page-top"></a>
+                          <h1 style="margin-top:10px; line-height:0.5;">STACK.</h1>
+                            <h1 class="splash-header">AND STARE.</h1>
+                            <h5 class="subhead"> A bold, new stacking game for adults. <br> Exclusively launching on Kickstarter in 2020.</h5>
+                          </div>
+                          
+
+                        <!--<h6 class="mb-4"><a href="" data-toggle="modal" data-backdrop="false" data-src="https://player.vimeo.com/video/224464481?autoplay=1&title=0&byline=0&portrait=0badge=0"data-target="#myModal">Watch The Trailer<span class="iconify" data-icon="simple-line-icons:control-play" data-inline="false"></span></a></h6>
 
                         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
@@ -81,27 +119,28 @@
                                         <button type="button" id="closeModal" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
-                                        <!-- 16:9 aspect ratio -->
-                                        <div id="PlayerID" class="embed-responsive embed-responsive-16by9">
-                                            <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/224464481?autoplay=1&title=0&byline=0&portrait=0badge=0" id="video" allowscriptaccess="always" allow="autoplay; fullscreen" allowfullscreen></iframe><script src="https://player.vimeo.com/api/player.js"></script>
+                                      
+                           -->
+                                        <div class='embed-container'>
+                                        <div id="PlayerID" class="loading-dots embed-responsive embed-responsive-16by9">
+                                           <iframe src="https://player.vimeo.com/video/386723311?autoplay=1&muted=1" width="640" height="360" frameborder=“0” allowfullscreen allow=autoplay></iframe>
+                                          </script>
                                         </div>
+                                      </div>
                                     </div>
+                                  </div>
                                 </div>
-                            </div>
-                        </div>
-                         <a href="#download" class="btn btn-outline btn-xl js-scroll-trigger">Step Inside</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-    </header>
+                              </section>
+                        <!-- <a href="#download" class="btn btn-outline btn-xl js-scroll-trigger">Step Inside</a>-->
+    </section>
+    
     <section class="download bg-primary text-center" id="download">
         <div class="container">
-            <!--<div class="row">
+            <div class="row">
                 <div class="col-md-8 mx-auto">
                     <h4 class="section-heading mb-4"> 'Misfits takes simple geometry and translates it into an absorbing game that is both beautiful to look at and fun to play.’</h4>
                     <h6>Anthony Burrill <a style="color:black;" target="_blank" href="https://www.instagram.com/anthonyburrill/">(@anthonyburill),</a> graphic artist</h6>
-                </div> -->
+                </div> 
       <div class="row">
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
@@ -125,7 +164,7 @@
     </div>
   </div>
 </div>
-
+<!--
 <section id="round-up-quotes">
   <div class="quotes">
           <div class="round-up-quote">
@@ -179,11 +218,11 @@
             <div class="device-mockup iphone6_plus portrait white">
               <div class="device">
                 <div class="screen">
-                  <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
+                   Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! 
                   <img src="img/demo-screen-1.jpg" class="img-fluid" alt="">
                 </div>
                 <div class="button">
-                  <!-- You can hook the "home button" to some JavaScript events or just remove it -->
+                   You can hook the "home button" to some JavaScript events or just remove it 
                 </div>
               </div>
             </div>
@@ -262,7 +301,7 @@
         </li>
       </ul>
     </div>
-  </section>
+  </section>-->
 
   <footer>
     <div class="container">

@@ -5,9 +5,27 @@
 // stop playing the youtube video when I close the modal
 /*$('#myModal').on('hide.bs.modal', function (e) {
     $("#myModal iframe").attr("src", $("#myModal iframe").attr("src"));
-});*/
+});
 
 var vidUrl = "https://player.vimeo.com/video/224464481?&title=0&byline=0&portrait=0badge=0";
+
+    function embedVideo(video) {
+  var div = document.getElementById('vimeo');
+  div.innerHTML = unescape(video.html);
+
+  var ifr = div.firstChild;
+  ifr.addEventListener('load', function(e) {
+    var player = $f(ifr);
+    player.api('setVolume', 0);
+  });
+}
+
+function init() {
+  var js = document.createElement('script');
+  js.setAttribute('type', 'text/javascript');
+  js.setAttribute('src', url);
+  document.getElementsByTagName('head').item(0).appendChild(js);
+}
 
     //Basically stops and starts the video on modal open/close
     $('#myModal').on('hidden.bs.modal', function (e) {
@@ -19,8 +37,8 @@ var vidUrl = "https://player.vimeo.com/video/224464481?&title=0&byline=0&portrai
             console.log('working');
       $(this).find('iframe').attr('src', vidUrl);
       /*
-        $("PlayerID iframe").attr('src =', vidUrl);*/
-    });
+        $("PlayerID iframe").attr('src =', vidUrl);
+    });*/
   // Smooth scrolling using jQuery easing
   $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
     if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
@@ -39,6 +57,7 @@ var vidUrl = "https://player.vimeo.com/video/224464481?&title=0&byline=0&portrai
     
 //Build the img, then do a bit of maths to randomize load and append to a div. Add a touch off css to fade them badboys in all sexy like.
     $('<img style="width:2.5em;" src="img/' + images[Math.floor(Math.random() * images.length)] + '">').appendTo('.navbar-brand');
+    $('<img style="width:2.5em; margin-bottom:10px;" src="img/' + images[Math.floor(Math.random() * images.length)] + '">').appendTo('.splash-logo');
 
   // Closes responsive menu when a scroll trigger link is clicked
   $('.js-scroll-trigger').click(function() {
