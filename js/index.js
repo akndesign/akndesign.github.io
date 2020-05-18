@@ -66,6 +66,44 @@ function init() {
     $('.navbar-collapse').collapse('hide');
   });
 
+$(window).scroll(function() {
+  var scrollTop = $(this).scrollTop();
+
+
+if (window.matchMedia("(max-width: 732px)").matches) { 
+
+  $('.features').css({
+  opacity: function() {
+    var elementHeight = $(this).height(),
+   
+    opacity = ((1 - (elementHeight - scrollTop) / elementHeight)-0.15);
+
+    console.log('Element ' + elementHeight, 'Scroll Top' + scrollTop);
+    return opacity;
+  }
+});
+}
+else
+{ 
+  $('.features').css({
+  opacity: function() {
+    var elementHeight = $(this).height(),
+   
+    opacity = ((1 - (elementHeight - scrollTop) / elementHeight) - 2.55);
+
+    console.log('Element ' + elementHeight, 'Scroll Top' + scrollTop);
+    return opacity;
+  }
+});
+
+
+
+}
+
+
+ 
+ 
+});
   // Activate scrollspy to add active class to navbar items on scroll
   $('body').scrollspy({
     target: '#mainNav',

@@ -2,6 +2,7 @@ html,
 body {
   width: 100%;
   height: 100%; 
+  color: #FFF;
 }
 
 box-sizing: border-box;
@@ -12,7 +13,7 @@ box-sizing: border-box;
 
 @font-face {
   font-family:'FoundersGrotesk_Italic';
-  src: url("../fonts/FoundersGrotesk-MediumItalic.otf"); /*IE9 Compat Modes */
+  src: url("../fonts/FoundersGrotesk-MediumItalic.otf") format("opentype"); /*IE9 Compat Modes */
   src: url("../fonts/FoundersGrotesk-MediumItalic.eot") format('embedded-opentype'), /* IE6-IE8 */
        url("../fonts/FoundersGroteskWeb-MediumItalic.woff") format('woff'), /* Modern Browsers */
        url("../fonts/FoundersGroteskWeb-MediumItalic.woff2") format('woff2'), /* Modern Browsers */
@@ -119,6 +120,7 @@ a {
 .manifesto-text .row {
     line-height: 1.125;
     margin-bottom: 36px!important;
+    z-index: 5; 
 }
 
 h3 {
@@ -160,7 +162,54 @@ hr.light {
    
 } 
 
-@media screen and (max-width: 600px) {
+#page-bg--middle {
+    position: absolute;
+    bottom: -4%;
+    left: 0;
+    width: 100%;
+    height: auto;
+}
+
+#HELOOOOO{
+  position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index:0;
+
+}
+
+
+@media screen and (min-width: 1024px)  {
+
+ .manifesto h1 {
+  font-size: 80px;
+  }
+}
+
+@media screen and (max-width: 1023px)  {
+
+ .manifesto h1 {
+  font-size: 56px;
+  }
+}
+
+@media only screen and (max-width: 734px) {
+ .manifesto h1 {
+font-size: 36px;
+line-height: 1.0;
+font-weight: 600;
+letter-spacing: 0em;
+}
+
+.manifesto h4 {
+font-size: 24px;
+letter-spacing: 0em;
+
+}
+
+}
+
   .game-box-container,  {
     visibility: hidden;
     clear: both;
@@ -277,6 +326,7 @@ header.masthead {
   overflow: hidden;
   background-repeat: no-repeat;
   background-size: cover;
+  margin-bottom: 30px;
 
 }
 
@@ -293,7 +343,7 @@ header.masthead {
 
 .image-3 {
  background-image: url('../img/a_Misfits_30082019_Shot_2_095_darrenmashup.jpg');
- background-position-x: -370px;
+ background-position-x: 80%;
 }
 
 
@@ -305,6 +355,14 @@ header.masthead {
   padding-bottom: 30px;
   text-align: right;
 }
+
+@media only screen and (max-width: 734px) {
+  .game-box-container img {
+    display:none;
+  }
+
+
+ } 
 
 .game-box-container img {
   width: 90%;
@@ -342,10 +400,13 @@ margin-right: auto;
   background:#111;
 }
 
-
-
 .splash-header{
   border-bottom: 10px solid #f8c3a8;
+  z-index:2;
+}
+
+.green-header {
+   border-bottom: 10px solid #10784f;
 }
 
 .subhead{
@@ -353,17 +414,34 @@ margin-right: auto;
  margin-bottom:20px;
 }
 
+
+
 .embed-container { 
     position: relative; 
     height: 0;
     max-width: 100%; height: auto; 
+    
 } 
+
+
+
 .embed-container iframe, .embed-container object, .embed-container embed { 
    position: absolute; 
    top: 0; 
    left: 0; 
    width: 100%; 
    height: 100%; 
+}
+
+@media only screen and (max-width: 734px) {
+
+section .manifesto
+
+#page-bg--middle {
+    bottom: -1%;
+
+}
+
 }
 
 .test-padding {
@@ -419,6 +497,9 @@ float: left;
     margin-left: auto; }
     header.masthead .device-container .screen img {
       border-radius: 3px; }
+
+
+
   @media (min-width: 992px) {
     header.masthead {
       height: 100vh;
@@ -461,18 +542,17 @@ float: left;
 }
 
 section.manifesto {
-  color: #f8c3a8;
-  background: #50a497;
+  color: #10784f;
   text-align: left;
   position: relative;
   width: 100%;
-  height: 130vh;
+  height: auto;
 }
 
 section.download {
   position: relative;
   width: 100%;
-  height: 130vh;
+  min-height: 150vh;
 }
   section.download h2 {
     font-size: 50px;
@@ -490,7 +570,7 @@ section.download {
         margin-bottom: 0; } }
   @media (min-width: 768px) {
     section.download {
-      padding: 15vh 20vh 20vh 20vh;
+      padding: 15vh 15vh 20vh 20vh;
     }
     section.download h2 {
       font-size: 70px; } }
@@ -554,6 +634,13 @@ section.download {
     cursor: pointer;
     background-color: black;
 }
+
+
+.container-fluid{
+  padding-top: 30px!important;
+}
+
+
 
 section.features .section-heading {
   margin-bottom: 100px; }
@@ -671,12 +758,15 @@ footer {
   background: -webkit-linear-gradient(#fdcc52, #fdc539);
   background: linear-gradient(#fdcc52, #fdc539); }
 
-.bg-a {
+.bg-green {
   background: #10784f;
   width: 100%;
   height: 100vh; 
 }
 
+.bg-pink {
+  background: #f8c3a8;
+}
 
 .text-primary {
   color: #fdcc52; }
