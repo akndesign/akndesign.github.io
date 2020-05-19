@@ -170,6 +170,15 @@ hr.light {
     height: auto;
 }
 
+#feature-polygon2 {
+    position: absolute;
+    top: -4%;
+    left: 0;
+    width: 100%;
+    height: auto;
+}
+
+
 #HELOOOOO{
   position: absolute;
     bottom: 0;
@@ -346,6 +355,11 @@ header.masthead {
  background-position-x: 80%;
 }
 
+.image-4 {
+ background-image: url('../img/o_Misfits_30082019_Shot_5_233.jpg');
+ background-position-x: 80%;
+}
+
 
 .game-box-container {
   float:right;
@@ -400,6 +414,13 @@ margin-right: auto;
   background:#111;
 }
 
+.bg-grey {
+  background: #dadad2;
+}
+.bg-blue {
+  background: #202533;
+}
+
 .splash-header{
   border-bottom: 10px solid #f8c3a8;
   z-index:2;
@@ -407,6 +428,10 @@ margin-right: auto;
 
 .green-header {
    border-bottom: 10px solid #10784f;
+}
+
+.red-header {
+   border-bottom: 10px solid #f04d23;
 }
 
 .subhead{
@@ -476,6 +501,30 @@ section .manifesto
        border:none !important;
 
 }
+
+.header-content-green{
+  float: left;
+  color: #10784f;
+  position: relative;
+  bottom:0;
+  left: 0;
+  padding-left:50px;
+  padding-top: 50px;
+  border: 0;
+  margin-bottom:10px;
+    box-shadow: none;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    -ms-appearance:none;
+    -o-appearance:none;
+    appearance: none;
+  outline: none!important; 
+  background-color:transparent !important;
+       border:none !important;
+
+}
+
+
 
 .navbar-brand {
 float: left;
@@ -678,7 +727,7 @@ section.features .feature-item {
 section.cta {
   position: relative;
   padding: 250px 0;
-  background-image: url("../img/bg-cta.jpg");
+  background-image: url(".");
   background-position: center;
   -webkit-background-size: cover;
   -moz-background-size: cover;

@@ -89,7 +89,7 @@ else
   opacity: function() {
     var elementHeight = $(this).height(),
    
-    opacity = ((1 - (elementHeight - scrollTop) / elementHeight) - 2.55);
+    opacity = ((1 - (elementHeight - scrollTop) / elementHeight) - 2.15);
 
     console.log('Element ' + elementHeight, 'Scroll Top' + scrollTop);
     return opacity;
