@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+
+
+</style>
+</head>
+<body>
+
+
+
+<div class="slideshow-container">
+
+<div class="mySlides fade">
+  <img src="img/o_Misfits_30082019_Shot_5_233.jpg" style="width:100%">
+  <div class="sliderText">Caption One</div>
+</div>
+
+<div class="mySlides fade">
+  <img src="img/o_Misfits_30082019_Shot_5_233.jpg" style="width:100%">
+  <div class="sliderText">Caption Two</div>
+</div>
+
+<div class="mySlides fade">
+  <img src="img/o_Misfits_30082019_Shot_5_233.jpg" style="width:100%">
+  <div class="sliderText">Caption Three</div>
+  
+</div>
+
+<a class="sliderPrev" onclick="plusSlides(-1)"><svg xmlns="http://www.w3.org/2000/svg" width="40px" viewBox="0 0 408.27 456.28"><defs><funciri></defs><title>sliderArrow</title><g class="a"><path class="sliderArrow" d="M54.81,441.62C53.24,331.1,23.89,373.38,98.6,303.16c83.39-65,100.15-65.58,202-84.85-128.13-150.85-205.3-84.46-223-116C19.33,123.39,29.16,48.76,27,34.43,58,29,119.7,38.64,163.43,52.67,234.3,90.59,337.88,131.8,365.86,199.46c6,139.34-88.42,81.74-136.52,114.88C162.68,342.09,130.78,366.26,54.81,441.62Z"/></g></svg></a>
+<a class="sliderNext" onclick="plusSlides(1)"><svg xmlns="http://www.w3.org/2000/svg" width="40px" viewBox="0 0 408.27 456.28"><defs><funciri></defs><title>sliderArrow</title><g class="a"><path class="sliderArrow" d="M54.81,441.62C53.24,331.1,23.89,373.38,98.6,303.16c83.39-65,100.15-65.58,202-84.85-128.13-150.85-205.3-84.46-223-116C19.33,123.39,29.16,48.76,27,34.43,58,29,119.7,38.64,163.43,52.67,234.3,90.59,337.88,131.8,365.86,199.46c6,139.34-88.42,81.74-136.52,114.88C162.68,342.09,130.78,366.26,54.81,441.62Z"/></g></svg></a>
+
+</div>
+
+<div>
+  <span class="sliderDot" onclick="currentSlide(1)"></span> 
+  <span class="sliderDot" onclick="currentSlide(2)"></span> 
+  <span class="sliderDot" onclick="currentSlide(3)"></span> 
+</div>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var sliderDots = document.getElementsByClassName("sliderDot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < sliderDots.length; i++) {
+      sliderDots[i].className = sliderDots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  sliderDots[slideIndex-1].className += " active";
+}
+</script>
+
+</body>
+</html> 
