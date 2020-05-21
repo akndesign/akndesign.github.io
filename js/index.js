@@ -78,7 +78,7 @@ if (window.matchMedia("(max-width: 732px)").matches) {
    
     opacity = ((1 - (elementHeight - scrollTop) / elementHeight)-0.15);
 
-    console.log('Element ' + elementHeight, 'Scroll Top' + scrollTop);
+    //console.log('Element ' + elementHeight, 'Scroll Top' + scrollTop);
     return opacity;
   }
 });
@@ -91,7 +91,7 @@ else
    
     opacity = ((1 - (elementHeight - scrollTop) / elementHeight) - 2.15);
 
-    console.log('Element ' + elementHeight, 'Scroll Top' + scrollTop);
+    //console.log('Element ' + elementHeight, 'Scroll Top' + scrollTop);
     return opacity;
   }
 });
@@ -99,6 +99,7 @@ else
 }
 
 $(document).ready(function() {
+ 
  function dxSimpleSlider(element = '#dx-slider', auto = false, pause) {
 
         // Get parent element
@@ -109,90 +110,113 @@ $(document).ready(function() {
         // Get all slides
         var slides = slidesCont.children('.slide');
 
-        // Get pager div
-        var pager = $this.children('.pager');
-
+        // Get Dots
+        var slidesDotsCont = $this.children('.sliderDotDiv');
+        // Get all slides
+        var slidesDots = slidesDotsCont.children('#sliderDot');
+        console.log(slidesDots);
         // Get Previous / Next links
         var arrowsCont = $this.children('.arrows');
-        var prevSlide = arrowsCont.children('.prev');
-        var nextSlide = arrowsCont.children('.next');
+        var prevSlide = arrowsCont.children('.sliderPrev');
+        var nextSlide = arrowsCont.children('.sliderNext');
 
         // Total slides count
         var slidesCount = slides.length;
 
         // Set currentSlide to first child
         var currentSlide = slides.first();
+        var currentDot = slidesDots.first();
         var currentSlideIndex = 1;
-
-        var autoPlay = null;
+        //var sliderDots = slides.first();
 
         // Hide all slides except first and add active class to first
-        slides.not(':first').css('display', 'none');
-        currentSlide.addClass('active');
+        //slides.not(':first').css('display', 'none');
+        //currentSlide.addClass('active');
 
         // Function responsible for fading to next slide
         function fadeNext() {
             currentSlide.removeClass('active').fadeOut(700);
+            currentDot.removeClass('active');
 
             if(currentSlideIndex == slidesCount) {
                 currentSlide = slides.first();
+                currentDot = slidesDots.first();
                 currentSlide.delay(500).addClass('active').fadeIn(700);
+                currentDot.addClass('active');
                 currentSlideIndex = 1;
+
             } else {
                 currentSlideIndex++;
                 currentSlide = currentSlide.next();
+                currentDot = currentDot.next();
                 currentSlide.delay(500).addClass('active').fadeIn(700);
+                currentDot.addClass('active');
+                
             }
-
-            pager.text(currentSlideIndex+' / '+slidesCount);
+            
         }
 
         // Function responsible for fading to previous slide
         function fadePrev() {
             currentSlide.removeClass('active').fadeOut(700);
+            currentDot.removeClass('active');
 
             if(currentSlideIndex == 1) {
                 currentSlide = slides.last();
+                currentDot = slidesDots.last();
                 currentSlide.delay(500).addClass('active').fadeIn();
+                currentDot.addClass('active');
                 currentSlideIndex = slidesCount;
+                
             } else {
                 currentSlideIndex--;
                 currentSlide = currentSlide.prev();
+                currentDot = currentDot.prev();
                 currentSlide.delay(500).addClass('active').fadeIn(700);
+                currentDot.addClass('active');
             }
-
-            pager.text(currentSlideIndex+' / '+slidesCount);
         }
-
-        // Function that starts the autoplay and resets it in case user navigated (clicked prev or next)
-        function AutoPlay() {
-            clearInterval(autoPlay);
-
-            if(auto == true)
-                autoPlay = setInterval(function() {fadeNext()}, pause);
+/*
+        function Dots () {
+          if(currentSlideIndex === 1) {
+          $('.dot1').addClass('active');
+          $('.dot3').removeClass('active');
+          $('.dot2').removeClass('active');
+        
+        } else if(currentSlideIndex === 2) {
+          $('.dot2').addClass('active');
+          $('.dot3').removeClass('active');
+          $('.dot1').removeClass('active');
+          }
+        else if(currentSlideIndex === 3) {
+          $('.dot3').addClass('active');
+          $('.dot2').removeClass('active');
+          $('.dot1').removeClass('active');
         }
-
+        }
+*/
+      
         // Detect if user clicked on arrow for next slide and fade next slide if it did
         $(nextSlide).click(function(e) {
             e.preventDefault();
             fadeNext();
-            AutoPlay();
+            //Dots();
+            
         });
 
         // Detect if user clicked on arrow for previous slide and fade previous slide if it did
         $(prevSlide).click(function(e) {
             e.preventDefault();
             fadePrev();
-            AutoPlay();
+            //Dots();
         });
 
-        // Start autoplay if auto is set to true
-        AutoPlay();
+      
 
     }
 
 $(function() {
-        dxSimpleSlider('#slider', false, 8000);
+        dxSimpleSlider('#slider', 8000);
     });
 
   });
