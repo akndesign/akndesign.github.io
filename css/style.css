@@ -449,6 +449,23 @@ img:not(.png) {
           float:left; 
           margin-right:20px;
           max-width:30%;
+    color: #10784f;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    padding-left: 50px;
+    padding-top: 50px;
+    border: 0;
+    margin-bottom: 10px;
+    box-shadow: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    outline: none!important;
+    background-color: transparent !important;
+    border: none !important;
           
     }
 
@@ -476,20 +493,30 @@ img:not(.png) {
           margin-bottom: 20px;
         }
 
-        #slider .arrows {
+        .sliderPrev, .sliderNext{
+          cursor: pointer;
           position: absolute;
-          top:50%;
-          
+          top: 50%;
+          width: auto;
+          padding: 16px;
+          margin-top: -22px;
+          color: white;
+          font-weight: bold;
+          font-size: 18px;
+          transition: 0.6s ease;
+          border-radius: 0 3px 3px 0;
+          user-select: none;
+
         }
 
-        .sliderPrev{
-          left:50%;
+        .sliderPrev {
+          left:35%;
         }
 
-        .sliderNext{
-          right:0;
-        }
-
+        .sliderNext {
+  right: 0;
+}
+      
         #slider .arrows a:hover {
             color: #fff;
         }
@@ -531,11 +558,7 @@ transform: scale(-1, 1);
 }
 
 /* Position the "sliderNext button" to the right */
-.sliderNext {
-  position: absolute;
-  left: 0;
-  cursor: pointer;
-}
+
 
 /* On hover, add a black background color with a little bit see-through */ 
  /* set fill for before and for during hover */
@@ -720,9 +743,9 @@ section .manifesto
   padding:0;
   border: 0;
   margin-bottom:10px;
-    box-shadow: none;
-    -webkit-appearance:none;
-    -moz-appearance:none;
+  box-shadow: none;
+  -webkit-appearance:none;
+   -moz-appearance:none;
     -ms-appearance:none;
     -o-appearance:none;
     appearance: none;
