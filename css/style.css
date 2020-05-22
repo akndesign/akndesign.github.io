@@ -438,13 +438,6 @@ img:not(.png) {
     transition: opacity 0.8s ease-in-out 0s;
 }
 
-        #slider .slides-container {
-           
-             min-height: 200px;
-             padding: 10px;
-             border : 2px solid blue; 
-        }
-
         #slider {
 
             min-width: 100vw;
@@ -454,9 +447,6 @@ img:not(.png) {
         }
         .slider-text {
           float:left; 
-          position: absolute;
-          left: 0;
-          top: 0;
           margin-right:20px;
           max-width:30%;
           
@@ -589,7 +579,7 @@ transform: scale(-1, 1);
 
 
 .dot-active {
-background-color: red!important;
+background-color: #10784f!important;
 }
 
 #sliderDot:hover {
@@ -836,6 +826,10 @@ section.manifesto {
   position: relative;
   width: 100%;
   height: auto;
+}
+
+section.design-slider {
+  color: #10784f;
 }
 
 section.download {
