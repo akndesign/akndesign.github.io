@@ -121,7 +121,7 @@ a {
 
 .manifesto-text div {
     line-height: 1.125;
-    margin-bottom: 36px!important;
+    padding-bottom: 36px!important;
     z-index: 5; 
     justify-content: center;
     -webkit-box-align: center;
@@ -362,19 +362,22 @@ header.masthead {
 }
 
 .image-1 {
-  background-image: url('../img/c_Misfits_30082019_Shot_10_802.jpg');
-  background-position-x: -180px;
+  background-image: url('../img/b_Misfits_30082019_Shot_10_815_updatedwork_fullshot.jpg');
+  background-position-x: -200px;
+
+
 }
 
 .image-2{
-  background-image: url('../img/b_Misfits_30082019_Shot_10_815_updatedwork.jpg');
-    background-position-x: -240px;
-     overflow: hidden;
+  background-image: url('../img/b_Misfits_30082019_Shot_10_815_updatedwork_pk_crop.jpg');
+    background-position-x: -100px;
+    overflow: hidden;
+
   }
 
 .image-3 {
- background-image: url('../img/a_Misfits_30082019_Shot_2_095_darrenmashup.jpg');
- background-position-x: 80%;
+  background-image: url('../img/b_Misfits_30082019_Shot_10_815_updatedwork_fullshot.jpg');
+  background-position-x: -200px;
 }
 
 .image-4 {
@@ -483,7 +486,7 @@ img:not(.png) {
           float:left; 
           margin-right:20px;
           max-width:30%;
-    color: #10784f;
+    color: #fbdccb;
     position: relative;
     bottom: 0;
     left: 0;
@@ -705,7 +708,8 @@ background-color: #10784f!important;
   background: #dadad2;
 }
 .bg-blue {
-  background: #202533;
+  background: #19242f;
+  fill:#19242f ;
 }
 
 .splash-header{
@@ -883,8 +887,8 @@ section.manifesto {
   height: auto;
 }
 
-section.design-slider {
-  color: #10784f;
+section.design-triptych {
+  
 }
 
 section.download {
@@ -897,7 +901,7 @@ section.introducing {
   position: relative;
   width: 100%;
   min-height: 90vh;
-  color: #10784f;
+  color: #fbdccb;
 }
 
   section.download h2 {
