@@ -119,10 +119,30 @@ a {
   a:hover, a:focus {
     color: #fcbd20; }
 
-.manifesto-text .row {
+.manifesto-text div {
     line-height: 1.125;
     margin-bottom: 36px!important;
     z-index: 5; 
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.manifesto-end {
+    position: sticky;
+    top: 20vh;
+    line-height: 1.125;
+    z-index: 5; 
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+
+.js-is-stuck {
+  top:20vh!important;
 }
 
 h3 {
@@ -166,7 +186,7 @@ hr.light {
 
 #page-bg--middle {
     position: absolute;
-    bottom: -4%;
+    bottom: -3%;
     left: 0;
     width: 100%;
     height: auto;
@@ -437,6 +457,20 @@ img:not(.png) {
     padding: 0px;
     transition: opacity 0.8s ease-in-out 0s;
 }
+   .scroll_to_top_button {
+    font-family: "filson-pro", Helvetica, sans-serif;
+    position: fixed;
+    bottom: 200px;
+    right: 50px;
+    border: 2px solid #333;
+    border-radius: 5px;
+    width: 85px;
+    height: 45px;
+    /* line-height: 45px; */
+    cursor: pointer;
+    z-index: 100;
+    text-align: center;
+  }
 
         #slider {
 
@@ -713,8 +747,6 @@ background-color: #10784f!important;
 
 @media only screen and (max-width: 734px) {
 
-section .manifesto
-
 #page-bg--middle {
     bottom: -1%;
 
@@ -860,6 +892,14 @@ section.download {
   width: 100%;
   min-height: 150vh;
 }
+
+section.introducing {
+  position: relative;
+  width: 100%;
+  min-height: 90vh;
+  color: #10784f;
+}
+
   section.download h2 {
     font-size: 50px;
     margin-top: 0; }

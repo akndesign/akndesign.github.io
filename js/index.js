@@ -1,22 +1,5 @@
 var app = {};
 
-app.smoothScrolling = function() {
-
-    // Smooth scrolling using jQuery easing
-    $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
-        if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-            var target = $(this.hash);
-            target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-            if (target.length) {
-                $('html, body').animate({
-                    scrollTop: (target.offset().top - 48)
-                }, 1000, "easeInOutExpo");
-                return false;
-            }
-        }
-    });
-};
-
 // Closes responsive menu when a scroll trigger link is clicked
     
 app.randomisedLogos = function() {
@@ -32,7 +15,7 @@ $('.js-scroll-trigger').click(function() {
         $('.navbar-collapse').collapse('hide');
     });
 };
-    
+  
 app.fadeEffectHeroImages = function() {
 
     $(window).scroll(function() {
@@ -56,7 +39,7 @@ app.fadeEffectHeroImages = function() {
                 opacity: function() {
                     var elementHeight = $(this).height(),
 
-                        opacity = ((1 - (elementHeight - scrollTop) / elementHeight) - 2.15);
+                        opacity = ((1 - (elementHeight - scrollTop) / elementHeight) - 2.65);
 
                     //console.log('Element ' + elementHeight, 'Scroll Top' + scrollTop);
                     return opacity;
@@ -66,6 +49,20 @@ app.fadeEffectHeroImages = function() {
     });
   };
 
+/*app.designDots = function() {
+    $('.dot1').on('click', function() {
+        console.log('success');
+   });           
+  };
+
+ $('.dot2').on('click', function() {
+        console.log('success2');
+   });    
+
+$('.dot3').on('click', function() {
+        console.log('success3');
+   });    */       
+
 app.designSlider = function() {
 
     $('#passionforDesign').click(function() {
@@ -74,6 +71,9 @@ app.designSlider = function() {
         $('#passionforDesign').removeClass('is-hidden').fadeOut('slow');
 
     });
+
+
+           
 
     function designSimpleSlider(element = '#dx-slider', auto = false, pause) {
 
@@ -95,24 +95,34 @@ app.designSlider = function() {
 
         // Total slides count
         var slidesCount = slides.length;
+        console.log(slidesCount);
 
         // Set currentSlide to first child
         var currentSlide = slides.first();
         var currentDot = slidesDots.first();
+
+        var currentSlideNext = slides.next();
       
         
         var currentSlideIndex = 1;
         //var sliderDots = slides.first();
+
+
+
 
         // Hide all slides except first and add active class to first
         //slides.not(':first').css('display', 'none');
         //currentSlide.addClass('active');
 
         // Function responsible for fading to next slide
+
+
+
         function fadeNext() {
             currentSlide.removeClass('active').fadeOut(700);
             ////currentText.removeClass('active');
             currentDot.removeClass('dot-active');
+            prevSlide.addClass('active').fadeIn(700);
 
             if (currentSlideIndex === slidesCount) {
                 currentSlide = slides.first();
@@ -127,7 +137,6 @@ app.designSlider = function() {
                 currentSlideIndex++;
                 currentSlide = currentSlide.next();
                 currentDot = currentDot.next();
-                console.log("working:");
 
                 currentSlide.delay(500).addClass('active').fadeIn(700);
                 currentDot.addClass('dot-active');
@@ -141,7 +150,7 @@ app.designSlider = function() {
             currentDot.removeClass('dot-active');
             
 
-            if (currentSlideIndex == 1) {
+            if (currentSlideIndex === 1) {
                 currentSlide = slides.last();
                 currentDot = slidesDots.last();
                 currentSlide.delay(500).addClass('active').fadeIn();
@@ -157,10 +166,36 @@ app.designSlider = function() {
             }
         }
        
+
+
+        $('.dot1').on('click', function() {
+          $('#s2').removeClass('active').fadeOut(700);
+          $('#s3').removeClass('active').fadeOut(700);
+          $('#s1').delay(500).addClass('active').fadeIn(700);
+          slidesDots.removeClass('dot-active');
+          $('.dot1').addClass('dot-active');
+          });           
+
+        $('.dot2').on('click', function() {
+          $('#s1').removeClass('active').fadeOut(700);
+          $('#s3').removeClass('active').fadeOut(700);
+          $('#s2').delay(500).addClass('active').fadeIn(700);
+          slidesDots.removeClass('dot-active');
+          $('.dot2').addClass('dot-active');
+        });    
+
+        $('.dot3').on('click', function() {
+          currentSlide.removeClass('active').fadeOut(700);
+          currentSlideNext.addClass('active').fadeIn(700);
+          slidesDots.removeClass('dot-active');
+          $('.dot3').addClass('dot-active');
+
+         });  
         // Detect if user clicked on arrow for next slide and fade next slide if it did
         $(nextSlide).click(function(e) {
             e.preventDefault();
             fadeNext();
+           
            
 
         });
@@ -169,17 +204,21 @@ app.designSlider = function() {
         $(prevSlide).click(function(e) {
             e.preventDefault();
             fadePrev();
+            
         });
 
+        
 
 
     }
 
     $(function() {
-        designSimpleSlider('#slider', 8000);
+        designSimpleSlider('#slider');
     });
-
 };
+
+
+
 
 app.navBar = function() {
 
@@ -223,13 +262,29 @@ $(document).ready(function() {
 
 });
 
+app.scrolltoTop = function() {
+
+
+$(".scroll_to_top_button").hide(); // hide on page load
+
+  $(window).bind('scroll', function(){
+    console.log('hello');
+    if($(this).scrollTop() > 1000) { // show after 200 px of user scrolling
+      $(".scroll_to_top_button").slideDown("fast");
+   }
+  });
+
+};
+
+
 app.init = function() {
     app.navBar();
-    app.smoothScrolling();
     app.randomisedLogos();
+    app.scrolltoTop();
     app.fadeEffectHeroImages();
+    //app.designDots();
     app.designSlider();
-    
+   
 };
 
 $(document).ready(app.init);
