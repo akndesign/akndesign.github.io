@@ -256,7 +256,7 @@ section {
 
 #mainNav {
   border-color: rgba(34, 34, 34, 0.05);
-  background-color: white;
+  background-color: rgba(0, 0, 0, 0.05);
   -webkit-transition: all .35s;
   -moz-transition: all .35s;
   transition: all .35s;
@@ -312,10 +312,10 @@ section {
         color: rgba(255, 255, 255, 0.7); }
         #mainNav .navbar-nav > li > a:hover,
         #mainNav .navbar-nav > li > a:focus:hover {
-          color: white; }
+          color: rgba(0, 0, 0, 0.05); }
       #mainNav.navbar-shrink {
         border-color: rgba(34, 34, 34, 0.1);
-        background-color: white; }
+        background-color: rgba(255,255,255, 0.0);}
         #mainNav.navbar-shrink .navbar-brand {
           color: #222222; 
           filter: brightness(0%);
