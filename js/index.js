@@ -35,11 +35,12 @@ app.fadeEffectHeroImages = function() {
                 }
             });
         } else {
+            //$('.hero-triptych').removeClass('is-hidden');
             $('.features').css({
                 opacity: function() {
                     var elementHeight = $(this).height(),
 
-                        opacity = ((1 - (elementHeight - scrollTop) / elementHeight) - 2.65);
+                        opacity = ((1 - (elementHeight - scrollTop) / elementHeight) - 2.1);
 
                     //console.log('Element ' + elementHeight, 'Scroll Top' + scrollTop);
                     return opacity;
@@ -191,6 +192,15 @@ app.designSlider = function() {
           $('.dot3').addClass('dot-active');
 
          });  
+
+        $('.dot4').on('click', function() {
+          currentSlide.removeClass('active').fadeOut(700);
+          currentSlideNext.addClass('active').fadeIn(700);
+          slidesDots.removeClass('dot-active');
+          $('.dot4').addClass('dot-active');
+
+         }); 
+
         // Detect if user clicked on arrow for next slide and fade next slide if it did
         $(nextSlide).click(function(e) {
             e.preventDefault();
@@ -264,21 +274,33 @@ $(document).ready(function() {
 
 app.scrolltoTop = function() {
 
+    $(window).scroll(function() {
+    if ($(this).scrollTop() > 1000) {
+        $('.scrollToTop').fadeIn();
+    }
+    else {
+        $('.scrollToTop').fadeOut();
+    }
 
-$(".scroll_to_top_button").hide(); // hide on page load
+    if ($(this).scrollTop() >= 1750) {
+        console.log('hello');
+    $('.scroll-up-text').fadeOut();
+    }
+    else { $('.scroll-up-text').fadeIn();
+    }
+});
 
-  $(window).bind('scroll', function(){
-    console.log('hello');
-    if($(this).scrollTop() > 1000) { // show after 200 px of user scrolling
-      $(".scroll_to_top_button").slideDown("fast");
-   }
-  });
-
+//Click event to scroll to top
+$('.scrollToTop').click(function() {
+    $('html, body').animate({
+        scrollTop: 0
+    }, 800);
+    return false;
+});
 };
 
-
 app.init = function() {
-    app.navBar();
+    //app.navBar();
     app.randomisedLogos();
     app.scrolltoTop();
     app.fadeEffectHeroImages();

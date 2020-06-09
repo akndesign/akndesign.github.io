@@ -1,5 +1,5 @@
 {
-  "name": "gulp",
+  "name": "misfits",
   "version": "1.0.0",
   "description": "prelaunch website for a new stacking game",
   "main": "index.html",
@@ -10,11 +10,16 @@
     "type": "git",
     "url": "git+ssh://git@github.com/akndesign/misfits-prelaunch.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "alexander neumann",
+  "license": "MIT",
   "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
     "browser-sync": "^2.26.7",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^7.0.1",
     "gulp-sass": "^4.1.0",
+    "hint": "^6.0.6",
     "node-sass": "^4.14.1",
     "stickybits": "^3.7.7"
   },
@@ -23,7 +28,8 @@
   },
   "homepage": "https://github.com/akndesign/misfits-prelaunch#readme",
   "dependencies": {
-    "gulp-connect": "^5.7.0"
+    "gulp-connect": "^5.7.0",
+    "jshint": "^2.11.1"
   },
   "keywords": []
 }

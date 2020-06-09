@@ -206,7 +206,7 @@ hr.light {
     bottom: 0;
     left: 0;
     width: 100%;
-    z-index:0;
+    z-index:2;
 
 }
 
@@ -362,32 +362,37 @@ header.masthead {
 }
 
 .image-1 {
-  background-image: url('../img/b_Misfits_30082019_Shot_10_815_updatedwork_fullshot.jpg');
-  background-position-x: -200px;
+  background-image: url('../img/b_Misfits_30082019_Shot_10_815_transparency.jpg');
 
 
 }
 
 .image-2{
   background-image: url('../img/b_Misfits_30082019_Shot_10_815_updatedwork_pk_crop.jpg');
-    background-position-x: -100px;
-    overflow: hidden;
+  background-position-x: -80px;
+  overflow: hidden;
 
   }
 
 .image-3 {
-  background-image: url('../img/b_Misfits_30082019_Shot_10_815_updatedwork_fullshot.jpg');
-  background-position-x: -200px;
+  /*background-image: url('../img/b_Misfits_30082019_Shot_10_815_updatedwork_pk_crop.jpg');*/
+  background-image: url('../img/a_Misfits_30082019_Shot_2_095_jakestyle_transparent.png');  
+  background-position-x: -180px;
 }
 
 .image-4 {
- background-image: url('../img/e_Misfits_30082019_Shot_1_049_Main_web.jpg');
+ background-image: url('../img/a_Misfits_30082019_Shot_2_095_jakestyle_blue.jpg');
  background-position-x: 80%;
 }
 
 
 .image-5 {
  background-image: url('../img/o_Misfits_30082019_Shot_5_233.jpg');
+ background-position-x: 80%;
+}
+
+.image-6 {
+ background-image: url('../img/f_Misfits_30082019_Shot_3_134_MAIN.jpg');
  background-position-x: 80%;
 }
 
@@ -460,20 +465,33 @@ img:not(.png) {
     padding: 0px;
     transition: opacity 0.8s ease-in-out 0s;
 }
-   .scroll_to_top_button {
+   .scrollToTop {
     font-family: "filson-pro", Helvetica, sans-serif;
     position: fixed;
     bottom: 200px;
     right: 50px;
-    border: 2px solid #333;
-    border-radius: 5px;
     width: 85px;
     height: 45px;
     /* line-height: 45px; */
     cursor: pointer;
-    z-index: 100;
+    z-index: 1;
     text-align: center;
   }
+
+  .scroll-arrow {
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  
+  }
+
+  .scroll-up-text {
+font-size:12px;
+
+  }
+
+
 
         #slider {
 
@@ -988,8 +1006,13 @@ section.introducing {
 
 .container-fluid{
   padding-top: 30px!important;
+ 
 }
 
+section.design-triptych, .design-slider {
+    position: relative;
+   z-index: 2;
+}
 
 
 section.features .section-heading {
