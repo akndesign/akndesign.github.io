@@ -8,6 +8,10 @@
       <title>Misfits - A New Classic Stacking Game</title>
       <link rel="stylesheet" href="https://use.typekit.net/cvr1fph.css">
 
+      <link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting.css" />
+      <link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting-cells.css" />
+      <script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
+
       <link rel="icon" type="image/svg+xml" href="https://sabbr.com.au/assets/images/favicon.svg">
       <link rel="alternate icon" type="image/png" sizes="32x32" href="https://sabbr.com.au/assets/images/favicon.png">
       <link rel="apple-touch-icon" sizes="180x180" href="https://sabbr.com.au/assets/images/apple-touch-icon.png">
@@ -34,40 +38,40 @@
    </head>
    <body class="template-index page-home js-enabled clickup-chrome-ext_installed">
       <a class="skip-to-content" href="https://sabbr.com.au/#main-content">Skip to content</a>
-      <header class="site-header ">
+      <header class="site-header">
+         <nav class="site-navigation has-menu" id="mainNav">
+            <div id="page-top"></div>
+            
          <div class="wrapper">
             <a class="navbar-brand logo" href="https://misfits.co/" title="Go to the homepage"></a>
             <a class="js-scroll-trigger tactical" href="#page-top"> <img style="width:12em; fill-opacity: 0.1" src="./img/tacticalstackinggame.svg"></a>
             <a class="button">Request Invite</a>
-
-         </div>
-         <nav class="site-navigation has-menu" id="mainNav">
-            <div id="page-top"></div>
-            <button type="button" class="menu-open-trigger" aria-haspopup="true" aria-expanded="false" aria-label="Open top level navigation">Menu</button>
+            <button type="button" class="menu-open-trigger" aria-haspopup="true" aria-expanded="false" aria-label="Open top level navigation">M</button>
             <button type="button" class="menu-close-trigger" aria-expanded="true" aria-label="Close top level navigation"><span>Close</span></button>
+         </div>
             <div class="menu">
                <span class="meta-content heading">Navigate to</span>
-               <ul class="primary-navigation" role="menubar" aria-label="Top level navigation">
-                  <li class="about-us" role="none">
-                     <a href="#about-us" role="menuitem">What People Are Saying</a>
+               <ul class="primary-navigation " role="menubar" aria-label="Top level navigation">
+                  <li  class="about-us button__rock" role="none">
+                     <a data-splitting class="rock" href="#about-us" role="menuitem">What People Are Saying</a>
                   </li>
-                  <li class="our-boofas" role="none">
-                     <a href="#design" role="menuitem" class="external-link" target="_blank">Our Design</a>
-                     <small class="info visually-hidden">opens savour-life.com.au</small>
+                  <li class="our-boofas button__rock" role="none">
+                     <a data-splitting class="rock" href="#design" role="menuitem" class="external-link" target="_blank">Our Design</a>
                   </li>
-                  <li class="adoption" role="none">
-                     <a href="#values" role="menuitem">Our Values</a>
+                  <li class="adoption button__rock" role="none">
+                     <a data-splitting class="rock" href="#values" role="menuitem">Our Values</a>
                   </li>
-                  <li class="foster" role="none">
-                     <a href="#shapes" role="menuitem">The Shapes</a>
+                  <li class="foster button__rock" role="none">
+                     <a data-splitting class="rock" href="#shapes" role="menuitem">The Shapes</a>
                   </li>
-                  <li class="surrender" role="none">
-                     <a href="https://sabbr.com.au/surrender" role="menuitem">How to Play</a>
+                  <li class="surrender button__rock" role="none">
+                     <a data-splitting class="rock" href="#howtoplay" role="menuitem">How to Play</a>
                   </li>
-                  <li class="contact-us" role="none">
-                     <a href="https://sabbr.com.au/contact-us" role="menuitem">Contact Us</a>
+                  <li class="contact-us button__rock" role="none">
+                     <a data-splitting class="rock" href="#contact-us" role="menuitem">Contact Us</a>
                   </li>
                </ul>
+            </div>
          </nav>
       </header>
       <main id="main-content" class="main-content">
@@ -78,7 +82,7 @@
        <h3>stack and stare</h3>
       <h1 class="hero-title">The next classic <br>stacking game.</h1>
       <span class="visually-hidden contact-verb">Email </span>
-      <span class="short-content "> Misfits is a fresh evolution to the family of stacking games.<br> No rulebook, no rectangular blocks. Only limitless possibilites.</span>
+      <span class="hero-subtitle short-content"> Misfits is a fresh evolution to the family of stacking games.<br> No rulebook, no rectangular blocks. Only limitless possibilites.</span>
 
       </div>
       </div>
@@ -156,6 +160,7 @@
          // Detect if js is available
          document.body.classList.add("js-enabled");
       </script>
+      <script> Splitting(); </script>
       <script src="main.js"></script>
       <script src="vendor/jquery/jquery.min.js"></script>
       <script src="index.js"></script>

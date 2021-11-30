@@ -29,7 +29,8 @@
   "homepage": "https://github.com/akndesign/misfits-prelaunch#readme",
   "dependencies": {
     "gulp-connect": "^5.7.0",
-    "jshint": "^2.11.1"
+    "jshint": "^2.11.1",
+    "splitting": "^1.0.6"
   },
   "keywords": []
 }
