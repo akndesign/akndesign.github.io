@@ -1,3 +1,4 @@
+
 :root {
   /* Site max-width */
   --site-max-width: 1600px;
@@ -393,7 +394,6 @@ ol li {
 .tactical {
   justify-self: center;
 }
-
 
 /*
  ** Content area
@@ -820,7 +820,6 @@ body {
 
 .site-navigation .menu-open-trigger,
 .site-navigation .menu-close-trigger {
-  width: 100%;
   padding-left: 0;
   padding-right: 0;
   margin-top: calc(var(--sp-qb)*3);
@@ -1063,10 +1062,6 @@ body {
 }
 
 @media screen and (min-width: 375px) {
-
-  .site-navigation .menu {
-    right: -16px;
-  }
 
   .site-navigation.menu-open .menu-close-trigger {
     right: 0;
@@ -1719,7 +1714,14 @@ body {
     margin-left: auto;
     margin-right: auto;
   }
+
+  .hero-title {
+  font-size: 45px;
 }
+
+}
+
+
 
 @media screen and (min-width: 1000px) {
 
@@ -1748,7 +1750,6 @@ body {
   background-position-x: -50px;
   object-fit: cover;
   border-radius: 18px; 
-  width: 83%;
   margin-left: auto;
   margin-right: auto;
   box-shadow: 0px 8px 10px 0px rgb(0 0 0 / 20%);
@@ -1761,7 +1762,9 @@ body {
   font-family: Recoleta-Semibold, Georgia, serif;
 }
 
-.hero-subtitle
+.hero-subtitle {
+  color: var(--color-cream);
+}
 
 .base {
   position: relative;
@@ -1799,30 +1802,6 @@ body {
 
 .hero-graphic .boofa-1 {
   background-image: url(../images/hero-boofa-1.png);
-}
-
-.hero-graphic .boofa-2 {
-  background-image: url(../images/hero-boofa-2.png);
-}
-
-.hero-graphic .boofa-3 {
-  background-image: url(../images/hero-boofa-3.png);
-}
-
-.hero-graphic .boofa-4 {
-  background-image: url(../images/hero-boofa-4.png);
-}
-
-.hero-graphic .boofa-5 {
-  background-image: url(../images/hero-boofa-5.png);
-}
-
-.hero-graphic .boofa-6 {
-  background-image: url(../images/hero-boofa-6.png);
-}
-
-.hero-graphic .boofa-7 {
-  background-image: url(../images/hero-boofa-7.png);
 }
 
 @keyframes rotate {
@@ -1871,9 +1850,14 @@ body {
 
 @media screen and (max-width: 600px) {
 
-  .hero-wrapper img {
+.tactical {
+     display: none;
+  }
+
+.hero-wrapper img {
     height: 325px;
   }
+
 .hero-title {
   font-size: 30px;
 }
@@ -1884,6 +1868,15 @@ body {
 }
 
 @media screen and (min-width: 1000px) {
+
+  .hero-title {
+    font-size: var(--fs-60);
+  }
+
+.hero-image {
+  width: 83%;
+}
+
 
   .template-index .main-content {
     padding-top: var(--sp-2b);
@@ -2108,6 +2101,10 @@ body {
 
 @media screen and (min-width: 1400px) {
 
+  .hero-subtitle {
+ color: var(--color-text);
+}
+
   .hero-content .content h1 {
     font-size: var(--fs-24);
     margin-bottom: var(--sp-b);
@@ -2130,123 +2127,13 @@ body {
  ** Pages
  */
 
-.template-page .hero-image {
-  position: relative;
-  margin-bottom: calc(var(--sp-hb)*3);
-}
-
-.template-page .hero-image img {
-  border-radius: 3px;
-}
-
-.template-page .hero-image:after {
-  content: "";
-  position: absolute;
-  display: block;
-  background-repeat: no-repeat;
-  background-size: 100%;
-  transform-origin: center;
-}
-
-.template-page .hero-image.sticker-0:after {
-  top: 0;
-  left: 0;
-  width: 100px;
-  height: 100px;
-  background-image: url(../images/sticker-sunny.svg);
-  transform: rotate(-20deg) translateX(-30px);
-}
-
-.template-page .hero-image.sticker-1:after {
-  bottom: 15%;
-  left: 0;
-  width: 100px;
-  height: 100px;
-  background-image: url(../images/sticker-lover.svg);
-  transform: rotate(-25deg) translateX(-50px);
-}
-
-.template-page .hero-image.sticker-2:after {
-  bottom: 0;
-  right: 30px;
-  width: 100px;
-  height: 70px;
-  background-image: url(../images/sticker-happy-tails.svg);
-  transform: rotate(15deg) translateX(50px);
-}
-
-.template-page .hero-image.sticker-3:after {
-  top: 10%;
-  right: 25px;
-  width: 80px;
-  height: 80px;
-  background-image: url(../images/sticker-big-boof.svg);
-  transform: rotate(10deg) translateX(50px);
-}
-
-.template-page .hero-image.sticker-4:after {
-  bottom: -15px;
-  left: -25px;
-  width: 100px;
-  height: 64px;
-  background-image: url(../images/sticker-bff.svg);
-  transform: rotate(-5deg);
-}
-
-.template-page .content-area:not(:last-child) {
-  margin-bottom: var(--sp-2b);
-}
-
-@media screen and (min-width: 1000px) {
-
-  .template-page .hero-image {
-    margin-bottom: calc(var(--sp-hb)*3.5);
-  }
-
-  .template-page .content-area {
-    max-width: 680px;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-
-  .template-page .hero-image.sticker-0:after {
-    width: 120px;
-    height: 120px;
-    left: -20px;
-  }
-
-  .template-page .hero-image.sticker-1:after {
-    width: 120px;
-    height: 120px;
-    left: -30px;
-  }
-
-  .template-page .hero-image.sticker-2:after {
-    bottom: 10%;
-    right: 0;
-    width: 120px;
-    height: 85px;
-  }
-
-  .template-page .hero-image.sticker-3:after {
-    width: 100px;
-    height: 100px;
-  }
-
-  .template-page .hero-image.sticker-4:after {
-    bottom: 5%;
-    left: -30px;
-    width: 120px;
-    height: 78px;
-  }
-}
-
 /*
  ** Events page
  */
 
 @media screen and (min-width: 1000px) {
+
+
 
   .template-events .event-list {
     max-width: 680px;
