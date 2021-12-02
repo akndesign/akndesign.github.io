@@ -52,6 +52,7 @@
   --fs-28: 1.75rem;  /* 28 */
   --fs-30: 1.875rem; /* 30 */
   --fs-32: 2rem;
+  --fs-48: 3rem;
   --fs-60: 4rem;      /* 32 */
 
   /* Line height */
@@ -137,7 +138,7 @@
 }
 
 #page-bg--middle {
-    position: relative;
+  position: relative;
     bottom: -3%;
     left: 0;
     width: 100%;
@@ -202,7 +203,8 @@ h1 {
 }
 
 h2 {
-  font-size: var(--fs-18);
+  color: var(--color-headers);
+  font-size: var(--fs-20);
 }
 
 h3 {
@@ -264,7 +266,7 @@ hr {
   }
 
   h2 {
-    font-size: var(--fs-20);
+    font-size: 1000px;
   }
 
   h3, p {
@@ -398,6 +400,8 @@ ol li {
 /*
  ** Content area
  */
+
+ 
 
 /* Remove margin-bottom from the first element inside content-area */
 .content-area > :first-child {
@@ -661,6 +665,16 @@ ol li {
  ** Base structure
  */
 
+
+.manifesto {
+  margin-top: -10px;
+  background-color: #ee531c;
+  text-align: left;
+  font-size: 21px;
+  line-height: 1.381;
+  letter-spacing: .011em;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -682,7 +696,7 @@ body {
 
 .site-header .wrapper {
   margin: 0 auto;
-  max-width: 1088px;
+  max-width: 1200px;
   position: relative;
   z-index: 2;
   padding-left: max(22px,env(safe-area-inset-left));
@@ -820,21 +834,28 @@ body {
 
 .site-navigation .menu-open-trigger,
 .site-navigation .menu-close-trigger {
-  padding-left: 0;
-  padding-right: 0;
-  margin-top: calc(var(--sp-qb)*3);
-  margin-left: auto;
   border: none;
   border-radius: 0;
   color: var(--color-text);
-  font-size: var(--fs-20);
   font-weight: bold;
   line-height: var(--fs-28);
   text-align: right;
   background: transparent;
   cursor: pointer;
   -webkit-appearance: none;
+  padding-right: 0;
+  padding-left: 0;
+  margin-right: 0;
 }
+
+.menu-open-trigger img {
+  float: right;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: right;
+
+}
+
 
 .site-navigation .menu-open-trigger:after,
 .site-navigation .menu-close-trigger:after {
@@ -1539,7 +1560,15 @@ body {
   }
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 751px) {
+
+.manifesto {
+  font-size: 24px;
+  line-height: 1.16667;
+  font-weight: 600;
+  letter-spacing: .009em;
+  }
+
 
   .site-footer .business-details,
   .site-footer .contact-details,
@@ -1848,7 +1877,7 @@ body {
   background-image: url(../images/hero-sticker-rescue-boofa.svg);
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 750px) {
 
 .tactical {
      display: none;
@@ -1869,12 +1898,12 @@ body {
 
 @media screen and (min-width: 1000px) {
 
-  .hero-title {
+.hero-title {
     font-size: var(--fs-60);
   }
 
 .hero-image {
-  width: 83%;
+  width: 75%;
 }
 
 
@@ -1998,6 +2027,10 @@ body {
 
 @media screen and (min-width: 350px) {
 
+ #page-bg--middle {
+  margin-top: -100px;
+}
+
   .hero-content .calls-to-action .button {
     font-size: var(--fs-16);
   }
@@ -2033,12 +2066,18 @@ body {
 
 @media screen and (min-width: 750px) {
 
+#page-bg--middle {
+  margin-top: -200px;
+}
+
   .hero-graphic {
     margin-bottom: var(--sp-3b);
   }
 }
 
 @media screen and (min-width: 1000px) {
+
+ 
 
   .hero-graphic {
     grid-column: 1/5;
@@ -2059,6 +2098,10 @@ body {
 }
 
 @media screen and (min-width: 1200px) {
+
+   #page-bg--middle {
+  margin-top: -300px;
+}
 
   .hero-graphic {
     grid-column: 1/4;
