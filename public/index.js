@@ -5,10 +5,12 @@ app.mobileNav = function() {
 
     $('#OpenNav').click(function() {
         $('#mainNav').addClass( "menu-open" );
+        $('.transform').toggleClass('transform-active');
     });
 
     $( '#CloseNav' ).click(function() {
         $('#mainNav').removeClass( 'menu-open');
+        $('.transform').toggleClass('transform-active');
     });
 
 }
