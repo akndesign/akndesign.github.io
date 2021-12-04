@@ -1,6 +1,6 @@
 // Nav toggle
 var menuOpen      = document.querySelector('.menu-open-trigger'),
-    menuClose     = document.querySelector('.menu-close-trigger'),
+    menuClose     = document.querySelector('.menu-close'),
     menuContainer = document.querySelector('.site-navigation');
 
 menuOpen.addEventListener("click", function() {
@@ -9,7 +9,9 @@ menuOpen.addEventListener("click", function() {
 
 menuClose.addEventListener("click", function() {
   menuContainer.classList.remove('menu-open');
+  console.log(close);
 });
+
 
 // Function to add randomised "sticker-" classes to elements
 function getRandomInt(max) {
@@ -21,13 +23,6 @@ var footerElement = document.querySelector('.footer-sticker');
 footerElement.classList.add("sticker-" + getRandomInt(2));
 
 // Index
-if (document.body.classList.contains('template-index')) {
-  var boofa   = document.querySelector('.boofa'),
-      sticker = document.querySelector('.sticker');
-
-  boofa.classList.add("boofa-" + getRandomInt(8));
-  sticker.classList.add("sticker-" + getRandomInt(4));
-}
 
 // Pages
 var imageContainer = document.querySelector('.hero-image');

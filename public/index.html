@@ -36,27 +36,25 @@
       </script>
       <!-- End Jekyll SEO tag -->
    </head>
-   <body class="template-index page-home js-enabled clickup-chrome-ext_installed">
-      <a class="skip-to-content" href="https://sabbr.com.au/#main-content">Skip to content</a>
+   <body class="template-index page-home js-enabled">
       <header class="site-header">
          <nav class="site-navigation has-menu" id="mainNav">
             <div id="page-top"></div>
-            
          <div class="wrapper">
             <a class="navbar-brand logo" href="https://misfits.co/" title="Go to the homepage"></a>
             <a class="js-scroll-trigger tactical" href="#page-top"> <img style="width:12em; fill-opacity: 0.1" src="./img/tacticalstackinggame.svg"></a>
             <a class="button">Request Invite</a>
-            <button type="button" class="menu-open-trigger" aria-haspopup="true" aria-expanded="false" aria-label="Open top level navigation"><img style="width:1.25em;" src="./img/menuicon.svg"></button>
-            <button type="button" class="menu-close-trigger" aria-expanded="true" aria-label="Close top level navigation"><span>Close</span></button>
+            <a  id="OpenNav" class="button menu-open-trigger" aria-haspopup="true" aria-expanded="false" aria-label="Open top level navigation"><img style="width:1.25em;" src="./img/menuicon.svg"></a>
+
+            <button id="CloseNav" class="menu-close-trigger" aria-haspopup="true" aria-expanded="false" aria-label="Close top level navigation"><img style="width:1.25em;" src="./img/menuicon.svg"></button>
          </div>
-            <div class="menu">
-               <span class="meta-content heading">Navigate to</span>
-               <ul class="primary-navigation " role="menubar" aria-label="Top level navigation">
+            <div id="#mainNav" class="menu ">
+               <ul class="primary-navigation" role="menubar" aria-label="Top level navigation">
                   <li  class="about-us button__rock" role="none">
                      <a data-splitting class="rock" href="#manifesto" role="menuitem">Our Manifesto</a>
                   </li>
                   <li class="our-boofas button__rock" role="none">
-                     <a data-splitting class="rock" href="#design" role="menuitem" class="external-link" target="_blank">Our Design</a>
+                     <a data-splitting class="rock" href="#design" role="menuitem" target="_blank">Our Design</a>
                   </li>
                   <li class="foster button__rock" role="none">
                      <a data-splitting class="rock" href="#shapes" role="menuitem">The Shapes</a>
@@ -103,13 +101,11 @@
       <h2 class="">We set out to see how we could shape up the stacking game, a space that hasn’t seen much change since the ’80s. But it’s not just a rethink of what a stacking game is. Misfits is about challenging the notions of what a board game should be — design-led, simple, inclusive. We have something to say. A game with intent. You don’t need a manual for joy; we tossed out the rulebook and we won’t include one. Simple. That's how play should be.</h2>
       <br>
       <p>More to come...</p>
-      </div>
        </section>
        
       
       <footer class="site-footer">
          <div class="wrapper footer-sticker sticker-1">
-            <address itemscope="" itemtype="http://schema.org/Organization">
                <ul class="business-details">
                   <li>
                      <span class="organisation-name meta-heading" itemprop="name">Made proudly by aknDesign, LLC</span>
@@ -149,17 +145,14 @@
                   <span class="meta-heading">Stay Updated</span>
                   <a href="https://www.instagram.com/misfitsblocks/" class="instagram meta-content" target="_blank">Instagram</a>
                   <a href="https://www.facebook.com/misfitsblocks/" class="facebook meta-content" target="_blank">Facebook</a>-->
-               </div>
-            </address>
-         </div>
-      </footer>
+            </div>
+         </footer>
       <script>
          // Detect if js is available
          document.body.classList.add("js-enabled");
       </script>
       <script> Splitting(); </script>
-      <script src="main.js"></script>
-      <script src="vendor/jquery/jquery.min.js"></script>
+       <script src="vendor/jquery/jquery.min.js"></script>
       <script src="index.js"></script>
    </body>
 </html>

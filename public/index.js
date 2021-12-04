@@ -1,6 +1,17 @@
 var app = {};
 
 // Closes responsive menu when a scroll trigger link is clicked
+app.mobileNav = function() {
+
+    $('#OpenNav').click(function() {
+        $('#mainNav').addClass( "menu-open" );
+    });
+
+    $( '#CloseNav' ).click(function() {
+        $('#mainNav').removeClass( 'menu-open');
+    });
+
+}
     
 app.randomisedLogos = function() {
 
@@ -302,6 +313,7 @@ $('.scrollToTop').click(function() {
 
 app.init = function() {
     //app.navBar();
+    app.mobileNav();
     app.randomisedLogos();
     app.scrolltoTop();
     app.fadeEffectHeroImages();

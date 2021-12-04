@@ -80,30 +80,6 @@
   color: var(--color-purple-dark);
 }
 
-.skip-to-content {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  white-space: nowrap;
-  clip: rect(0, 0, 0, 0);
-  clip-path: inset(50%);
-}
-
-.skip-to-content:focus {
-  z-index: 3;
-  width: auto;
-  height: auto;
-  padding-left: var(--sp-b);
-  padding-right: var(--sp-b);
-  overflow: visible;
-  white-space: normal;
-  clip: auto;
-  clip-path: none;
-  background-color: var(--color-purple-dark);
-  color: var(--color-stock);
-}
-
 /*
  * Helpers
  */
@@ -887,15 +863,14 @@ body {
 }
 
 .site-navigation .menu {
-  position: absolute;
+  position: relative;
   top: var(--sp-qb);
   right: 0;
   z-index: 4;
   overflow: hidden;
   min-width: 160px;
   border-radius: 10px;
-  background-color: var(--color-stock);
-  box-shadow: 0 5px 15px var(--color-purple-20p);
+ 
 }
 
 /* Hide navigation by default */
@@ -925,13 +900,12 @@ body {
 
 /* Apply purple overlay over content */
 .site-navigation.menu-open:after {
-  z-index: 3;
+  z-index: 1;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: var(--color-purple-50p);
 }
 
 /* Hide open trigger if class 'menu-open' is attached */
@@ -1020,7 +994,6 @@ body {
   width: 10px;
   height: 10px;
   margin-left: calc(var(--sp-qb));
-  background-image: url(../images/external-link-sprite.svg);
   background-repeat: no-repeat;
   background-size: 100%;
   transition: transform 0.1s ease-in;
@@ -1069,18 +1042,6 @@ body {
   background-repeat: no-repeat;
 }
 
-.social-navigation a:hover:before,
-.social-navigation a:focus:before {
-  background-position: 0 -16px;
-}
-
-.social-navigation .instagram:before {
-  background-image: url('../images/instagram-logo-sprite.svg');
-}
-
-.social-navigation .facebook:before {
-  background-image: url('../images/facebook-logo-sprite.svg');
-}
 
 @media screen and (min-width: 375px) {
 
