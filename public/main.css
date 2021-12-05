@@ -108,6 +108,10 @@
   text-align: center;
 }
 
+.content {
+  padding: 30px 30px;
+}
+
 #page-bg--middle {
   position: relative;
     bottom: -3%;
@@ -241,6 +245,9 @@ hr {
   border-bottom: var(--border-thin);
   margin-top: var(--fs-24);
   margin-bottom: var(--fs-24);
+}
+
+
 }
 
 
