@@ -477,8 +477,7 @@ body {
 @media screen and (min-width: 300px) {
 
 .tactical {
-
-visibility: hidden;
+ visibility: hidden;
 }
 
 .hero-image {
