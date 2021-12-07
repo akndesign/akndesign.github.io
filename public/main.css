@@ -476,6 +476,11 @@ body {
 
 @media screen and (min-width: 300px) {
 
+.tactical {
+
+visibility: hidden;
+}
+
 .hero-image {
   background-image: url('../img/hero/g_Misfits_30082019_Shot_7_403-Recovered@2x.jpg');
   overflow: hidden;
