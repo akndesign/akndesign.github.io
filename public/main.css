@@ -80,6 +80,27 @@
   color: var(--color-purple-dark);
 }
 
+#loading-bg {
+  background : -moz-linear-gradient(12.92% 11.06% -30.56deg,rgba(1, 56, 57, 1) 24.74%,rgba(0, 48, 49, 1) 100%);
+  background : -webkit-linear-gradient(-30.56deg, rgba(1, 56, 57, 1) 24.74%, rgba(0, 48, 49, 1) 100%);
+  background : -webkit-gradient(linear,12.92% 11.06% ,99.04% 101.5% ,color-stop(0.2474,rgba(1, 56, 57, 1) ),color-stop(1,rgba(0, 48, 49, 1) ));
+  background : -o-linear-gradient(-30.56deg, rgba(1, 56, 57, 1) 24.74%, rgba(0, 48, 49, 1) 100%);
+  background : -ms-linear-gradient(-30.56deg, rgba(1, 56, 57, 1) 24.74%, rgba(0, 48, 49, 1) 100%);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#70D8CE', endColorstr='#013938' ,GradientType=0)";
+  background : linear-gradient(120.56deg, rgba(1, 56, 57, 1) 24.74%, rgba(0, 48, 49, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#013938',endColorstr='#70C3CE' , GradientType=1);
+  z-index: 100;
+  position:fixed;
+  left:0;
+  top:0;
+  right:0;
+  bottom:0;
+  -webkit-transition: all 0.25s ease-out;
+  transition: all 0.25s ease-out;
+}
+
+
+
 /*
  * Helpers
  */
@@ -140,6 +161,44 @@
   font-display: swap;
   src: url('../fonts/Latinotype - Recoleta SemiBold.otf') format("opentype");
 }
+
+.loading-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.loader-brand {
+  margin-bottom: 1em;
+  
+}
+
+.loader-brand img {
+  display: inline;
+}
+
+.loading-header, .loading-text {
+  margin: 0 0 1em;
+  position: relative;
+  top: 50%;
+  color: white;
+
+}
+
+.loading-text {
+  font-size: 1em;
+}
+
+
+#loader-1 {
+  margin: 0 0 2em;
+  position: relative; 
+  
+}
+
 
 body {
   font-family: Recoleta, Georgia, serif;
@@ -425,6 +484,8 @@ body {
 .site-header {
   padding: var(--sp-b);
   border-bottom: var(--border-thin);
+  transition: all 0.3s ease-in-out, background 0.5s ease-in-out;
+  transition-delay: 0.15s;
 }
 
 .site-header .wrapper {
@@ -476,8 +537,39 @@ body {
 
 @media screen and (min-width: 300px) {
 
+.site-navigation {
+    display: block;
+    height: 50px;
+    overflow: hidden;
+    transition: all 0.5s ease-out, background 1s ease-out;
+    transition-delay: 0.2s;
+    z-index: 1;
+
+}
+
+.menu-opened {
+    height: 350px;
+    transition: all 0.3s ease-in, background 0.5s ease-in-out;
+    transition-delay: 0.25s;
+}
+
+.menu-item {
+ padding: 7px 0px 7px 0px;
+ font-size: 12px;
+ font-weight: 200;
+}
+
+.header-opened {
+  background-color: #033837;
+
+}
+
+.menu-close-trigger {
+  visibility: hidden;
+}
+
 .tactical {
- visibility: hidden;
+  visibility: hidden;
 }
 
 .hero-image {
@@ -493,14 +585,8 @@ body {
   width: 90%;
 }  
 
- .site-navigation.menu-open .menu-close-trigger {
-    right: 0;
-    margin-top: 25px;
-  }
-
-
-.menu-open-trigger {
-  margin-top: 25px;
+.menu-opened .menu-close-trigger {
+    visibility: visible;
 }
 
 .textbox {
@@ -591,6 +677,7 @@ body {
   }*/
 
   .site-navigation {
+    height: 120px;
     grid-column: 2/5;
 
   }
@@ -626,16 +713,6 @@ body {
  *** Site navigation
  */
 
-.site-navigation {
-  position: relative;
-  flex-grow: 1;
-}
-
-.site-navigation:after {
-  content: "";
-  background-color: transparent;
-  transition: background-color 0.1s linear;
-}
 
 .site-navigation .menu-open-trigger,
 .site-navigation .menu-close-trigger {
@@ -661,26 +738,8 @@ body {
 
 }
 
-
-.site-navigation .menu-open-trigger:after,
-.site-navigation .menu-close-trigger:after {
-  content: "";
-  position: relative;
-  top: -2px;
-  display: inline-block;
-  width: 10px;
-  height: 6px;
-  margin-left: var(--sp-hb);
-  background-size: 100%;
-  background-position: top;
-}
-
-.site-navigation .menu-close-trigger {
+.menu-close-trigger {
   display: none;
-}
-
-.site-navigation .menu-close-trigger span {
-  opacity: 0;
 }
 
 #mainNav:after {
@@ -688,31 +747,26 @@ body {
   transition-delay: 0.25s;
 }
 
-.menu.ul li.menu-item:nth-child(1) {
+.menu-item:nth-child(1) {
   transition-delay: 0.27s;
 }
-.menu.ul li.menu-item:nth-child(2) {
+.menu-item:nth-child(2) {
   transition-delay: 0.34s;
 }
-.window .header.menu-opened ul.menu li.menu-item:nth-child(3) {
+.menu-item:nth-child(3) {
   transition-delay: 0.41s;
 }
-.window .header.menu-opened ul.menu li.menu-item:nth-child(4) {
+.menu-item:nth-child(4) {
   transition-delay: 0.48s;
 }
-.window .header.menu-opened ul.menu li.menu-item:nth-child(5) {
+.menu-item:nth-child(5) {
   transition-delay: 0.55s;
 }
-.window .header.menu-opened ul.menu li.menu-item:nth-child(6) {
+.menu-item:nth-child(6) {
   transition-delay: 0.62s;
 }
-.window .header.menu-opened ul.menu li.menu-item:nth-child(7) {
+.menu-item:nth-child(7) {
   transition-delay: 0.69s;
-}
-
-.site-navigation .menu-close-trigger:after {
-  transition: all 0.3s ease-in, background 0.5s ease-in;
-  transition-delay: 0.25s;
 }
 
 .site-navigation .menu {
@@ -724,57 +778,6 @@ body {
   min-width: 160px;
   border-radius: 10px;
  
-}
-
-/* Hide navigation by default */
-.site-navigation .menu {
-  display: none;
-}
-
-/* Show navigation on hover/focus */
-.site-navigation:hover .menu,
-.site-navigation:focus .menu {
-  display: block;
-}
-
-/* Hide navigation on hover/focus if js is avaiable  */
-.js-enabled .site-navigation:hover .menu,
-.js-enabled .site-navigation:focus .menu {
-  display: none;
-}
-
-/* Open menu if class 'menu-open' is attached */
-.site-navigation.menu-open .menu,
-/* Keep menu open on hover/focus if class 'menu-open' is attached */
-.js-enabled .site-navigation.menu-open:hover .menu,
-.js-enabled .site-navigation.menu-open:focus .menu {
-  display: block;
-  transition: all 0.3s ease-in, background 0.5s ease-in;
-  transition-delay: 0.25s;
-}
-
-/* Apply purple overlay over content */
-.site-navigation.menu-open:after {
-  z-index: 1;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  transition: all 0.3s ease-in, background 0.5s ease-in;
-  transition-delay: 0.25s;
-}
-
-/* Hide open trigger if class 'menu-open' is attached */
-.site-navigation.menu-open .menu-open-trigger {
-  display: none;
-}
-
-/* Overlay close trigger if class 'menu-open' is attached */
-.site-navigation.menu-open .menu-close-trigger {
-  display: block;
-  z-index: 5;
-  right: 16px;
 }
 
 .site-navigation .menu .heading {
@@ -828,13 +831,14 @@ body {
   margin-bottom: var(--sp-hb);
   text-transform: uppercase;
   letter-spacing: 2px;
+  padding-left: 0;
 }
 
 .primary-navigation a {
   display: block;
   padding: var(--sp-qb) var(--sp-b);
   margin-bottom: var(--sp-qb);
-  font-size: var(--fs-20);
+  font-size: var(--fs-16);
 }
 
 .primary-navigation a .char {
@@ -929,7 +933,7 @@ body {
   }
 
   .site-navigation .menu-open-trigger,
-  .site-navigation.menu-open .menu-close-trigger {
+  .site-navigation .menu-close-trigger {
     display: none;
   }
 

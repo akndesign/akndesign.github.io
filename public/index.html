@@ -34,39 +34,95 @@
       <script type="application/ld+json">
          {"description":""}
       </script>
+
+      <script src="vendor/jquery/jquery.min.js"></script>
+      <script src="index.js"></script>
+
+      <script type="text/javascript">
+         $(window).on('load', function(){
+        $('#loading-bg').delay(3500).fadeOut(500);
+         });
+      </script>
    </head>
+      <div id="loading-bg"> 
+      <div class="loading-content">
+        <div class="loading-header">
+          <div class="loader-brand" title="Welcome" alt="Misfits Logo"></div>
+        </div>
+        <div class="loading-text animated animatedFadeInUp fadeInUp"><span class="loader-greeting"></span><br>To be loved and treasured for generations to come</div>
+         <div class="loading-text animated animatedFadeInUp fadeInUp">
+         <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+            width="40px" height="40px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+            <path fill="#fff" d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
+               <animateTransform attributeType="xml"
+                  attributeName="transform"
+                  type="rotate"
+                  from="0 25 25"
+                  to="360 25 25"
+                  dur="0.6s"
+                  repeatCount="indefinite"/>
+            </path>
+         </svg>
+      </div>
+      </div>
+      </div>
    <body class="template-index page-home js-enabled">
-      <header class="site-header">
+      <header class="site-header" >
          <nav class="site-navigation has-menu" id="mainNav">
             <div id="page-top"></div>
          <div class="wrapper">
             <a class="navbar-brand logo" href="https://misfits.co/" title="Go to the homepage"></a>
             <a class="js-scroll-trigger tactical" href="#page-top"> <img style="width:12em; fill-opacity: 0.1" src="./img/tacticalstackinggame.svg"></a>
             <a class="invite-button"><p>Request Invite</p></a>
+
+
             <a  id="OpenNav" class="button menu-open-trigger" aria-haspopup="true" aria-expanded="false" aria-label="Open top level navigation"><img style="width:1.25em;" src="./img/menuicon.svg"></a>
             <button id="CloseNav" class="menu-close-trigger" aria-haspopup="true" aria-expanded="false" aria-label="Close top level navigation"><img style="width:1.25em;" src="./img/close.svg"></button>
          </div>
             <div id="#mainNav" class="menu transform">
                <ul class="primary-navigation" role="menubar" aria-label="Top level navigation">
-                  <li  class="about-us button__rock" role="none">
+                  <li  class="about-us menu-item button__rock" role="none">
                      <a data-splitting class="rock" href="#manifesto" role="menuitem">Our Manifesto</a>
                   </li>
-                  <li class="our-boofas button__rock" role="none">
+                  <li class="about-us menu-item button__rock" role="none">
                      <a data-splitting class="rock" href="#design" role="menuitem" target="_blank">Our Design</a>
                   </li>
-                  <li class="foster button__rock" role="none">
+                  <li class="about-us menu-item button__rock" role="none">
                      <a data-splitting class="rock" href="#shapes" role="menuitem">The Shapes</a>
                   </li>
-                  <li class="surrender button__rock" role="none">
+                  <li class="about-us menu-item button__rock" role="none">
                      <a data-splitting class="rock" href="#howtoplay" role="menuitem">How to Play</a>
                   </li>
-                  <li class="contact-us button__rock" role="none">
+                  <li class="about-us menu-item button__rock" role="none">
                      <a data-splitting class="rock" href="#contact-us" role="menuitem">Contact Us</a>
                   </li>
                </ul>
             </div>
          </nav>
       </header>
+<!--
+      <div class="window">
+  <div class="header">
+    <div class="burger-container">
+      <div id="burger">
+        <div class="bar topBar"></div>
+        <div class="bar btmBar"></div>
+      </div>
+    </div>
+    <div class="icon icon-apple"></div>
+    <ul class="menu">
+      <li class="menu-item"><a href="#">Mac</a></li>
+      <li class="menu-item"><a href="#">iPad</a></li>
+      <li class="menu-item"><a href="#">iPhone</a></li>
+      <li class="menu-item"><a href="#">Watch</a></li>
+      <li class="menu-item"><a href="#">TV</a></li>
+      <li class="menu-item"><a href="#">Music</a></li>
+      <li class="menu-item"><a href="#">Support</a></li>
+    </ul>
+  </div>
+</div>
+-->
+
       <section id="main-content" class="main-content">
       <div class="hero-wrapper">
       <img class="hero-image" src="../img/hero/g_Misfits_30082019_Shot_7_403-Recovered@2x.jpg" alt="">
@@ -150,7 +206,6 @@
          document.body.classList.add("js-enabled");
       </script>
       <script> Splitting(); </script>
-       <script src="vendor/jquery/jquery.min.js"></script>
-      <script src="index.js"></script>
+       
    </body>
 </html>

@@ -1,34 +1,91 @@
 var app = {};
 
-// Closes responsive menu when a scroll trigger link is clicked
-app.mobileNav = function() {
+app.loaderFadeOut = function(){
 
-    $('#OpenNav').click(function() {
-        $('#mainNav').addClass( "menu-open" );
-        $('.transform').toggleClass('transform-active');
-    });
+var timedifference = new Date().getTimezoneOffset();
 
-    $( '#CloseNav' ).click(function() {
-        $('#mainNav').removeClass( 'menu-open');
-        $('.transform').toggleClass('transform-active');
-    });
+var userTime = new Date().getHours();
+console.log(userTime);
 
+(function loaderGreeting () {
+
+if (userTime >= 1 && userTime < 5 ) {
+    $('.loader-greeting').text('Hello night owl!');
+
+} else if (userTime >= 5 && userTime < 12) {
+    $('.loader-greeting').text('Morning!');
+
+} else if (userTime >= 12 && userTime < 17) {
+    $('.loader-greeting').text('Afternoon!');
+
+} else if (userTime >= 17 || userTime < 1) {
+    $('.loader-greeting').text('Good evening!');
+            
 }
+    setTimeout(loaderGreeting, 5000);
     
+})();
+
+setTimeout(function() {
+       $('.loading-text').removeClass("fadeInUp");
+       $('.loading-text').addClass("fadeOutUp");
+       $('#loader-1').removeClass("fadeInUp");
+       $('#loader-1').addClass("fadeOutUp");
+       $('.loading-header').addClass("animated animatedFadeInUp fadeOutUp");
+   } .bind(this), 1000);
+
+}; 
+
+
+
 app.randomisedLogos = function() {
 
     var images = ['logoicons_01.svg', 'logoicons_02.svg', 'logoicons_03.svg', 'logoicons_04.svg'];
 
     //Build the img, then do a bit of maths to randomize load and append to a div. Add a touch off css to fade them badboys in all sexy like.
+    $('<img style="width:2.5em; margin-bottom:10px;" src="img/' + images[Math.floor(Math.random() * images.length)] + '">').appendTo('.loader-brand');
     $('<img style="width:2.5em; style= "fill:green;" src="img/' + images[Math.floor(Math.random() * images.length)] + '">').appendTo('.navbar-brand');
-    $('<img style="width:2.5em; margin-bottom:10px;" src="img/' + images[Math.floor(Math.random() * images.length)] + '">').appendTo('.splash-logo');
-    $('<img style="width:1.5em; margin-bottom:10px;" src="img/' + images[Math.floor(Math.random() * images.length)] + '">').appendTo('.manifesto-logo');
+}
 
-$('.js-scroll-trigger').click(function() {
-        $('.navbar-collapse').collapse('hide');
+// Closes responsive menu when a scroll trigger link is clicked
+app.mobileNav = function() {
+
+    $('#OpenNav').click(function() {
+        $('#mainNav').addClass( "menu-opened" );
+        $('.site-header').addClass( "header-opened");
+        $('#OpenNav').fadeOut('slow', function(){
+            $('#CloseNav').fadeIn('slow');
+        });
     });
-};
-  
+
+    $( '#CloseNav' ).click(function() {
+        $('#mainNav').removeClass( 'menu-opened');
+        $('.site-header').removeClass( "header-opened");
+        $('#CloseNav').fadeOut('slow', function(){
+            $('#OpenNav').fadeIn('slow');
+        });
+        
+    });
+
+}
+
+app.burgerIcon = function() {
+
+    $('#OpenNav').change(function(e) {
+        if (this.checked) {    
+        $('#tempFahrenheit').fadeOut('slow', function(){
+            $('#temperature').fadeIn('slow');
+        });
+    } else { 
+        $('#temperature').fadeOut('slow', function(){
+        $('#tempFahrenheit').fadeIn('slow');
+                });
+        }
+    });
+
+
+
+}
 
 app.fadeEffectHeroImages = function() {
 
@@ -314,9 +371,10 @@ $('.scrollToTop').click(function() {
 };
 
 app.init = function() {
+    app.randomisedLogos();
+    app.loaderFadeOut();
     //app.navBar();
     app.mobileNav();
-    app.randomisedLogos();
     app.scrolltoTop();
     app.fadeEffectHeroImages();
     //app.designDots();
