@@ -80,27 +80,6 @@
   color: var(--color-purple-dark);
 }
 
-#loading-bg {
-  background : -moz-linear-gradient(12.92% 11.06% -30.56deg,rgba(1, 56, 57, 1) 24.74%,rgba(0, 48, 49, 1) 100%);
-  background : -webkit-linear-gradient(-30.56deg, rgba(1, 56, 57, 1) 24.74%, rgba(0, 48, 49, 1) 100%);
-  background : -webkit-gradient(linear,12.92% 11.06% ,99.04% 101.5% ,color-stop(0.2474,rgba(1, 56, 57, 1) ),color-stop(1,rgba(0, 48, 49, 1) ));
-  background : -o-linear-gradient(-30.56deg, rgba(1, 56, 57, 1) 24.74%, rgba(0, 48, 49, 1) 100%);
-  background : -ms-linear-gradient(-30.56deg, rgba(1, 56, 57, 1) 24.74%, rgba(0, 48, 49, 1) 100%);
-  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#70D8CE', endColorstr='#013938' ,GradientType=0)";
-  background : linear-gradient(120.56deg, rgba(1, 56, 57, 1) 24.74%, rgba(0, 48, 49, 1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#013938',endColorstr='#70C3CE' , GradientType=1);
-  z-index: 100;
-  position:fixed;
-  left:0;
-  top:0;
-  right:0;
-  bottom:0;
-  -webkit-transition: all 0.25s ease-out;
-  transition: all 0.25s ease-out;
-}
-
-
-
 /*
  * Helpers
  */
@@ -146,6 +125,14 @@
  * Base Elements and Typography
  */
 
+@font-face {
+  font-family:'Commodore';
+  src: url("../fonts/bescii.ttf") format("truetype"); /*IE9 Compat Modes */
+  src: url("../fonts/bescii.woff") format('woff'), /* IE6-IE8 */
+       url("../fonts/bescii.woff2") format('woff2'), /* Modern Browsers */
+ /* Legacy iOS */
+  font-weight: normal, sans-serif;
+}
 
 @font-face {
   font-family: 'Recoleta';
@@ -162,41 +149,34 @@
   src: url('../fonts/Latinotype - Recoleta SemiBold.otf') format("opentype");
 }
 
+#loading-bg {
+  background: rgb(160, 160, 255);
+  background-size: cover;
+  font-family: 'Commodore', sans-serif; 
+  z-index: 100;
+  position:fixed;
+  left:0;
+  top:0;
+  right:0;
+  bottom:0;
+  -webkit-transition: all .5s ease-out;
+  transition: all .5s ease-out;
+}
+
 .loading-content {
-  position: fixed;
+  position: absolute;
   top: 50%;
   left: 50%;
   /* bring your own prefixes */
   transform: translate(-50%, -50%);
-  text-align: center;
-}
-
-.loader-brand {
-  margin-bottom: 1em;
-  
-}
-
-.loader-brand img {
-  display: inline;
-}
-
-.loading-header, .loading-text {
-  margin: 0 0 1em;
-  position: relative;
+  background: rgb(64, 64, 224);
+  color: rgb(160, 160, 255);
+  padding-top: 1em;
   top: 50%;
-  color: white;
-
-}
-
-.loading-text {
-  font-size: 1em;
-}
-
-
-#loader-1 {
-  margin: 0 0 2em;
-  position: relative; 
-  
+  left: 50%;
+  width: 80%;
+  max-width: 1000px;
+  height: 350px;
 }
 
 
@@ -309,6 +289,93 @@ hr {
 
 
 }
+
+.loader-brand img {
+  display: inline;
+}
+
+.loading-content h1 {
+ text-align: center;
+ line-height: 3vw;
+  margin: 0 auto;
+  padding: 0em 1em 1em 1em;
+
+}
+
+.typed-out, .loading-content h1, h2 {
+  font-size: 1.75vw;
+}
+
+.typed-out, h2 {
+  margin: 0;
+}
+
+
+.flash {
+  opacity: 0;
+  line-height: 1.5;
+
+  /* Shared animation proprties apply to all */
+  -webkit-animation: pulse 0.15s forwards; /* for less modern browsers */
+   animation: pulse 0.15s forwards;
+  
+}
+
+/* These are the delays */
+.flash:nth-child(4) {animation-delay: 1s; }
+.flash:nth-child(5) {animation-delay: 1.5s; }
+.flash:nth-child(6) {animation-delay: 1.75s; }
+.flash:nth-child(7) {animation-delay: 2s; }
+
+.typed-out {
+  overflow: hidden;
+  /*border-right: 1em solid white;*/
+  white-space: nowrap;
+  animation: typing 1.5s steps(20, end) forwards;
+  -webkit-animation: typing 1.5s steps(20, end) forwards;
+  width: 0;
+  padding: 10px 0px 10px 0px;
+}
+
+.delay {
+  animation-delay: 2s;
+  padding-top: 10px;
+}
+
+.blinking {
+  padding-top: 20px;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: pulse 0.15s forwards,
+  blinking 1.2s infinite; 
+  animation-delay: 3.25s;
+  opacity: 0;
+}
+
+
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* Animation definition */
+@keyframes pulse {
+   0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes blinking {
+  from {color: transparent }
+  to {color: var(--color-cream); 
+}
+}
+
 
 
 
