@@ -5,38 +5,32 @@ app.loaderFadeOut = function(){
 var timedifference = new Date().getTimezoneOffset();
 
 var userTime = new Date().getHours();
+var userYear = new Date().getFullYear();
+
+$('.year').append(userYear);
+
 console.log(userTime);
 
 (function loaderGreeting () {
 
 if (userTime >= 1 && userTime < 5 ) {
-    $('.loader-greeting').text('Hello night owl!');
+    $('.loader-greeting').text('HELLO NIGHT OWL');
 
 } else if (userTime >= 5 && userTime < 12) {
-    $('.loader-greeting').text('Morning!');
+    $('.loader-greeting').text('GOOD MORNING');
 
 } else if (userTime >= 12 && userTime < 17) {
-    $('.loader-greeting').text('Afternoon!');
+    $('.loader-greeting').text('AFTERNOON');
 
 } else if (userTime >= 17 || userTime < 1) {
-    $('.loader-greeting').text('Good evening!');
+    $('.loader-greeting').text('GOOD EVENING!');
             
 }
     setTimeout(loaderGreeting, 5000);
     
 })();
 
-setTimeout(function() {
-       $('.loading-text').removeClass("fadeInUp");
-       $('.loading-text').addClass("fadeOutUp");
-       $('#loader-1').removeClass("fadeInUp");
-       $('#loader-1').addClass("fadeOutUp");
-       $('.loading-header').addClass("animated animatedFadeInUp fadeOutUp");
-   } .bind(this), 1000);
-
-}; 
-
-
+}
 
 app.randomisedLogos = function() {
 
@@ -67,6 +61,25 @@ app.mobileNav = function() {
         
     });
 
+}
+
+app.inviteBox = function() {
+
+// When the user clicks on the button, open the modal
+$(".invite-button").on('click', function(c) {
+  $("#myModal").removeClass('is-hidden');
+});
+
+// When the user clicks on <span> (x), close the modal
+ $('.close').on('click', function(c){
+        $(this).closest('#myModal').addClass('is-hidden');
+});
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    $("#myModal").addClass('is-hidden');
+  }
+}
 }
 
 app.burgerIcon = function() {
@@ -373,6 +386,7 @@ $('.scrollToTop').click(function() {
 app.init = function() {
     app.randomisedLogos();
     app.loaderFadeOut();
+    app.inviteBox();
     //app.navBar();
     app.mobileNav();
     app.scrolltoTop();
