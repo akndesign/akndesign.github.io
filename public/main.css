@@ -1264,6 +1264,7 @@ body {
   .primary-navigation a {
     font-size: var(--fs-12);
   }
+}
 
 @media screen and (min-width: 1280px) {
 
@@ -1316,10 +1317,11 @@ body {
 /* Modal Content/Box */
 .modal-content {
   background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
+  margin: 10% auto 15%; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
   width: 80%; /* Could be more or less, depending on screen size */
+  height: 50vh;
 }
 
 /* The Close Button */
@@ -1341,12 +1343,7 @@ body {
  ** Main content
  */
 
-.main-content {
-  padding-left: var(--sp-b);
-  padding-right: var(--sp-b);
-  padding-top: var(--sp-hb);
-  padding-bottom: var(--sp-2b);
-}
+
 
 @media screen and (min-width: 350px) {
 
@@ -1816,6 +1813,7 @@ body {
  ** Homepage
  */
 
+@media screen and (min-width: 1200px) {
 
 
 .hero-title {
@@ -1862,53 +1860,6 @@ body {
 @keyframes rotate {
   from { transform: rotate(0deg); }
   to { transform: rotate(359deg); }
-}
-
-
-@media screen and (max-width: 750px) {
-
-.hero-wrapper img {
-    height: 325px;
-  }
-
-.hero-title {
-  font-size: 30px;
-}
-
-  }
-}
-
-@media screen and (min-width: 1000px) {
-
-.hero-title {
-    font-size: var(--fs-60);
-  }
-
-.hero-image {
-  background-image: url('../img/hero/g_Misfits_30082019_Shot_7_403-Recovered@2x.jpg');
-  overflow: hidden;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position-x: -50px;
-  object-fit: cover;
-  border-radius: 18px; 
-  margin-left: auto;
-  margin-right: auto;
-  box-shadow: 0px 8px 10px 0px rgb(0 0 0 / 20%);
-  width: 75%;
-}  
-
-
-.template-index .main-content {
-    padding-top: var(--sp-2b);
-  }
-}
-
-@media screen and (min-width: 1200px) {
-
-  .hero-graphic .sticker-0 {
-    transform: scale(1.35) translateX(-10%) translateY(-6%) rotate(7deg);
-  }
 }
 
 
@@ -2017,44 +1968,6 @@ body {
   margin-right: var(--sp-hb);
 }
 
-@media screen and (min-width: 350px) {
-
-  .hero-content .calls-to-action .button {
-    font-size: var(--fs-16);
-  }
-}
-
-@media screen and (min-width: 1000px) {
-
-
-.content {
-  padding-top: 0px;
-}
-
-  .hero-graphic {
-    grid-column: 1/5;
-  }
-
-  .hero-content {
-    grid-column: 1/5;
-  }
-
-  .hero-content .content h1 {
-    font-size: var(--fs-24);
-  }
-
-  .hero-content .calls-to-action .button {
-    font-size: var(--fs-18);
-    line-height: var(--fs-20);
-  }
-}
-
-@media screen and (min-width: 1200px) {
-
-   #page-bg--middle {
-  margin-top: -300px;
-}
-
 .content {
   padding-top: 30px;
 }
@@ -2097,6 +2010,11 @@ body {
   }
 }
 
+
+
+}
+
+
 @media screen and (min-width: 1400px) {
 
 
@@ -2115,4 +2033,92 @@ body {
    .hero-image {
     width: 60%;
   }
+
+
+
+@media screen and (max-width: 750px) {
+
+.hero-wrapper img {
+    height: 325px;
+  }
+
+.hero-title {
+  font-size: 30px;
+}
+
+  }
+}
+
+@media screen and (min-width: 1000px) {
+
+.hero-title {
+    font-size: var(--fs-60);
+  }
+
+.hero-image {
+  background-image: url('../img/hero/g_Misfits_30082019_Shot_7_403-Recovered@2x.jpg');
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: -50px;
+  object-fit: cover;
+  border-radius: 18px; 
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0px 8px 10px 0px rgb(0 0 0 / 20%);
+  width: 75%;
+}  
+
+
+.template-index .main-content {
+    padding-top: var(--sp-2b);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+
+  .hero-graphic .sticker-0 {
+    transform: scale(1.35) translateX(-10%) translateY(-6%) rotate(7deg);
+  }
+}
+
+
+
+@media screen and (min-width: 350px) {
+
+  .hero-content .calls-to-action .button {
+    font-size: var(--fs-16);
+  }
+}
+
+@media screen and (min-width: 1000px) {
+
+
+.content {
+  padding-top: 0px;
+}
+
+  .hero-graphic {
+    grid-column: 1/5;
+  }
+
+  .hero-content {
+    grid-column: 1/5;
+  }
+
+  .hero-content .content h1 {
+    font-size: var(--fs-24);
+  }
+
+  .hero-content .calls-to-action .button {
+    font-size: var(--fs-18);
+    line-height: var(--fs-20);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+
+   #page-bg--middle {
+  margin-top: -300px;
+}
 

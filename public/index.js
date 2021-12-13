@@ -75,6 +75,9 @@ $(".invite-button").on('click', function(c) {
         $(this).closest('#myModal').addClass('is-hidden');
 });
 // When the user clicks anywhere outside of the modal, close it
+
+modal = document.getElementById("myModal");
+
 window.onclick = function(event) {
   if (event.target == modal) {
     $("#myModal").addClass('is-hidden');
