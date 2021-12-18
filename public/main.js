@@ -1,16 +1,31 @@
-// Nav toggle
-var menuOpen      = document.querySelector('.menu-open-trigger'),
-    menuClose     = document.querySelector('.menu-close'),
-    menuContainer = document.querySelector('.site-navigation');
+var Scrollbar = window.Scrollbar;
 
-menuOpen.addEventListener("click", function() {
-  menuContainer.classList.add('menu-open');
-});
+var mainElem = $("main-scrollbar"); 
 
-menuClose.addEventListener("click", function() {
-  menuContainer.classList.remove('menu-open');
-  console.log(close);
-});
+Scrollbar.init(document.querySelector('#my-scrollbar'), options);
+Scrollbar.use(OverscrollPlugin);
+
+const options = {
+  damping: 0.11,
+  renderByPixels: !('ontouchstart' in document),
+};
+const overscrollOptions = {
+  enable: true,
+  effect: navigator.userAgent.match(/Android/) ? 'glow' : 'bounce',
+  damping: 0.11,
+  maxOverscroll: navigator.userAgent.match(/Android/) ? 150 : 100,
+  glowColor: mainElem.dataset.glowColor,
+};
+
+const scrollbar = [
+  Scrollbar.init(mainElem, {
+    ...options,
+    delegateTo: document,
+    plugins: {
+      overscroll: { ...overscrollOptions },
+    },
+  }),
+]
 
 
 // Function to add randomised "sticker-" classes to elements

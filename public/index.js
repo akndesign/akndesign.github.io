@@ -85,6 +85,10 @@ window.onclick = function(event) {
 }
 }
 
+app.smoothScrolling = function() {
+
+}
+
 app.burgerIcon = function() {
 
     $('#OpenNav').change(function(e) {
@@ -388,6 +392,7 @@ $('.scrollToTop').click(function() {
 
 app.init = function() {
     app.randomisedLogos();
+    app.smoothScrolling();
     app.loaderFadeOut();
     app.inviteBox();
     //app.navBar();
@@ -396,7 +401,7 @@ app.init = function() {
     app.fadeEffectHeroImages();
     //app.designDots();
     app.designSlider();
-   
+    
 };
 
 $(document).ready(app.init);
