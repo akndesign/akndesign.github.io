@@ -1,5 +1,143 @@
 var app = {};
 
+app.createBlotterLiquify = () => {
+
+console.log('helloooooo');
+
+document.fonts.ready.then(function () {
+
+const body = document.body;
+const docEl = document.documentElement;
+
+const MathUtils = {
+    lineEq: (y2, y1, x2, x1, currentVal) => {
+        // y = mx + b 
+        var m = (y2 - y1) / (x2 - x1), b = y1 - m * x1;
+        return m * currentVal + b;
+    },
+    lerp: (a, b, n) =>  (1 - n) * a + n * b,
+    distance: (x1, x2, y1, y2) => {
+        var a = x1 - x2;
+        var b = y1 - y2;
+        return Math.hypot(a,b);
+    }
+};
+
+    let winsize;
+    const calcWinsize = () => winsize = {width: window.innerWidth, height: window.innerHeight};
+    calcWinsize();
+    window.addEventListener('resize', calcWinsize);
+
+    const getMousePos = (ev) => {
+        let posx = 0;
+        let posy = 0;
+        if (!ev) ev = window.event;
+        if (ev.pageX || ev.pageY) {
+            posx = ev.pageX;
+            posy = ev.pageY;
+        }
+        else if (ev.clientX || ev.clientY)  {
+            posx = ev.clientX + body.scrollLeft + docEl.scrollLeft;
+            posy = ev.clientY + body.scrollTop + docEl.scrollTop;
+        }
+        return {x: posx, y: posy};
+    }
+
+    let mousePos = {x: winsize.width/2, y: winsize.height/2};
+    window.addEventListener('mousemove', ev => mousePos = getMousePos(ev));   
+
+    const elem = document.getElementById('content__text').innerHTML;
+    const textEl = document.getElementById('content__text-inner').innerHTML;
+
+    const styleProperties = {
+        family: "'Recoleta-Semibold', serif",
+        weight: 600,
+        size : 64,
+        paddingLeft: 100,
+        paddingRight: 50,
+        fill : '#f3f0df'
+    }; 
+
+    var text1 = new Blotter.Text(elem, styleProperties);
+    var text2 = new Blotter.Text(textEl, styleProperties);
+    //var text3 = new Blotter.Text('game.', styleProperties);
+    
+    const material = new Blotter.LiquidDistortMaterial();
+        material.uniforms.uSpeed.value = 1;
+        material.uniforms.uVolatility.value = 0;
+        material.uniforms.uSeed.value = 0.1;
+
+    const blotter = new Blotter(material, {
+        texts : [text1, text2]
+    });
+    
+    const scope1 = blotter.forText(text1);
+    const scope2 = blotter.forText(text2);
+   //const scope3 = blotter.forText(text3);
+
+    
+    scope1.appendTo(document.getElementById("content__text-liquid"));
+    scope2.appendTo(document.getElementById("content__text-liquid"));
+    //scope3.appendTo(document.getElementById("content__text-liquid"));
+
+   $( "#content__text-inner" ).remove();
+   $( "#content__text" ).remove();
+
+
+    let lastMousePosition = {x: winsize.width/2, y: winsize.height/2};
+    let volatility = 0;
+
+    const render = () => {
+    const docScrolls = {left : body.scrollLeft + docEl.scrollLeft, top : body.scrollTop + docEl.scrollTop};
+    const relmousepos = {x : mousePos.x - docScrolls.left, y : mousePos.y - docScrolls.top };
+    const mouseDistance = MathUtils.distance(lastMousePosition.x, relmousepos.x, lastMousePosition.y, relmousepos.y);
+        
+    volatility = MathUtils.lerp(volatility, Math.min(MathUtils.lineEq(0.9, 0, 100, 0, mouseDistance),0.9), 0.05);
+    material.uniforms.uVolatility.value = volatility;
+    lastMousePosition = {x: relmousepos.x, y: relmousepos.y};
+    requestAnimationFrame(render);
+
+    }
+
+    requestAnimationFrame(render);
+}.bind(this));
+};
+
+app.createBlotterRollingDistort = () => {
+
+const text = new Blotter.Text("game.", {
+  family : "'Recoleta-Semibold;', serif",
+  size : 120,
+  weight : 600,
+  needsUpdate: true,
+  leading: "1",
+  fill : '#f3f0df',
+  padding: 0 
+});
+
+const material = new Blotter.RollingDistortMaterial();
+
+material.uniforms.uSpeed.value = 0.05;
+material.uniforms.uSineDistortSpread.value = 0.035;
+material.uniforms.uSineDistortCycleCount.value = 2;
+material.uniforms.uSineDistortAmplitude.value = 0.03;
+material.uniforms.uNoiseDistortVolatility.value = 15;
+material.uniforms.uNoiseDistortAmplitude.value = 0.01;
+material.uniforms.uRotation.value = 170;
+material.uniforms.uSpeed.value = 0.08;
+                                                  
+const blotter = new Blotter(material, {
+  texts : text
+});
+
+const elem = document.getElementById("distortion-text");
+const scope = blotter.forText(text);
+
+scope.appendTo(elem);
+
+};
+
+
 app.loaderFadeOut = function(){
 
 var timedifference = new Date().getTimezoneOffset();
@@ -62,6 +200,10 @@ app.mobileNav = function() {
     });
 
 }
+
+
+
+
 
 app.inviteBox = function() {
 
@@ -394,6 +536,8 @@ app.init = function() {
     app.randomisedLogos();
     app.smoothScrolling();
     app.loaderFadeOut();
+    app.createBlotterLiquify();
+    //app.createBlotterRollingDistort();
     app.inviteBox();
     //app.navBar();
     app.mobileNav();
@@ -401,6 +545,7 @@ app.init = function() {
     app.fadeEffectHeroImages();
     //app.designDots();
     app.designSlider();
+
     
 };
 
