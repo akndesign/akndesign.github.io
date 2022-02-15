@@ -1,17 +1,88 @@
 @import url("https://use.typekit.net/cvr1fph.css");
 
-html,
-body {
-  width: 100%;
-  height: 100%; 
-  color: #FFF;
-}
-
 box-sizing: border-box;
 }
 *i, *:before, *:after {
   box-sizing: inherit;
 }
+
+:root {
+  /* Site max-width */
+  --site-max-width: 1600px;
+
+  /* Colors */
+  --color-black: black;
+  --color-white: white;
+  --color-stock: #FFFEF8;
+  --color-stock-dark: #FCFBF2;
+  --color-cream: #f3f0df;
+  --color-headers:#f3f0df;
+  --color-nav-faded: #CAA551;
+  --color-dark-gold: #b8860b;
+  --color-tomato: #ee531c;
+  --color-dark-gold-dark: #4B325E;
+  --color-dark-gold-5p: rgba(129, 86, 162, 0.05);
+  --color-dark-gold-10p: rgba(129, 86, 162, 0.1);
+  --color-dark-gold-20p: rgba(129, 86, 162, 0.2);
+  --color-dark-gold-50p: rgba(129, 86, 162, 0.5);
+  --color-emerald-green: #003837;
+  --color-yellow: #FFCA05;
+  --color-yellow-bright: #FFE14D;
+  --color-yellow-dark: #D99204;
+
+
+
+  --color-text: var(--color-dark-gold);
+  --color-background: var(--color-stock);
+
+  /* Spacing */
+  --sp-base: 16px;
+
+  --sp-qb: calc(var(--sp-base)*0.25);
+  --sp-hb: calc(var(--sp-base)*0.5);
+  --sp-b: var(--sp-base);
+  --sp-2b: calc(var(--sp-base)*2);
+  --sp-3b: calc(var(--sp-base)*3);
+  --sp-4b: calc(var(--sp-base)*4);
+  --sp-5b: calc(var(--sp-base)*5);
+
+  /* Borders */
+  --border-thin: 1px solid var(--color-dark-gold-10p);
+
+  /* Font size */
+  font-size: 16px; /* base */
+
+  --fs-10: 0.625rem; /* 10 */
+  --fs-12: 0.75rem;  /* 12 */
+  --fs-14: 0.875rem; /* 14 */
+  --fs-16: 1rem;     /* 16 */
+  --fs-18: 1.125rem; /* 18 */
+  --fs-20: 1.25rem;  /* 20 */
+  --fs-22: 1.375rem; /* 22 */
+  --fs-24: 1.5rem;   /* 24 */
+  --fs-28: 1.75rem;  /* 28 */
+  --fs-30: 1.875rem; /* 30 */
+  --fs-32: 2rem;
+  --fs-48: 3rem;
+  --fs-60: 4rem;      /* 32 */
+
+  /* Line height */
+  --lh-base: var(--fs-24);
+  --lh-expanded: var(--fs-28);
+
+  line-height: var(--lh-base);
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+
+html,
+body {
+  width: 100%;
+  height: 100%; 
+  color: --var(--color-tomato);
+}
+
 
 @font-face {
   font-family:'FoundersGrotesk_Italic';
@@ -30,31 +101,6 @@ box-sizing: border-box;
   font-weight: normal;
 }
 
-
-input, input[type="password"], input[type="search"],input[type=text] {
-    border: 0;
-    box-shadow: none!important;
-    -webkit-appearance:none!important;
-    -moz-appearance:none!important;
-    -ms-appearance:none!important;
-    -o-appearance:none!important;
-    appearance: none;
-    outline: none!important;
-    border:none !important;
-    background: #f8c3a8!important;
-    font-weight: bold;
-    width: 100%!important;
-   margin: 5px 0px;
-   height: 45px;
-   padding: 6px 15px;
-   border-radius: 5px;
-   outline: none;
-   border: none;
-   background: #F6F7F9;
-   color: #748194;
-   font-size: 14px;
-
-}
 
 /*@font-face {
   font-family:'Circular';

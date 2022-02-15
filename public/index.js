@@ -1,5 +1,87 @@
 var app = {};
 
+app.liquifyBackground = () => {
+
+const canvas = document.getElementById('canvas');
+const scene = new THREE.Scene();
+const renderer = new THREE.WebGLRenderer({canvas: canvas, antialias: true});
+const camera = new THREE.PerspectiveCamera(20, canvas.clientWidth / canvas.clientWidth, 1, 1000);
+const mouse = new THREE.Vector2(0.2, 0.4);
+
+const dogTexture = new THREE.TextureLoader().load('/img/gradient-3.jpg');
+
+var quad = new THREE.Mesh(
+  new THREE.PlaneGeometry(2, 2),
+  new THREE.ShaderMaterial({
+    vertexShader: document.getElementById('vertex-shader').textContent,
+    fragmentShader: document.getElementById('fragment-shader').textContent,
+    depthWrite: false,
+    depthTest: false,
+    uniforms: {
+      dog: {
+        type: "t",
+        value: dogTexture
+      },
+      delta: {
+        value: 1.0
+      },
+      mouse: {
+        value: mouse
+      },
+      filter: {
+        value: true
+      },
+      speed: {
+        value: 1
+      }
+    }
+  })
+);
+scene.add(quad);
+
+function onResize () {
+  renderer.setSize(canvas.clientWidth, canvas.clientHeight, true);
+}
+
+function onMouseMove(e) {
+  const x = (e.clientX / (window.innerWidth * 0.5)) - 1;
+  const y = -1 * (e.clientY / (window.innerHeight * 0.5)) + 1;
+  updateMouse(x, y);
+}
+function onTouchMove(e) {
+  const x = (e.touches[0].clientX / (window.innerWidth * 0.5)) - 1;
+  const y = -1 * (e.touches[0].clientY / (window.innerHeight * 0.5)) + 1;
+  updateMouse(x, y);
+}
+function updateMouse(x, y) {
+  TweenMax.to(mouse, 2, {
+    x: x, 
+    y: y,
+    onUpdate: function () {
+      quad.material.uniforms.mouse.value = mouse;
+    }
+  })
+}
+
+function render(a) {
+  requestAnimationFrame(render);
+  quad.material.uniforms.delta.value = a;
+  quad.material.uniforms.filter.value = 10;
+  renderer.render(scene, camera);
+}
+
+onResize();
+window.addEventListener('resize', onResize);
+window.addEventListener('mousemove', onMouseMove);
+window.addEventListener('touchmove', onTouchMove);
+//document.querySelector('#filter').addEventListener('change', function () {
+
+quad.material.uniforms.speed.value = 10 / 100;
+requestAnimationFrame(render);
+
+
+};
+
 app.createBlotterLiquify = () => {
 
 console.log('helloooooo');
@@ -55,11 +137,11 @@ const MathUtils = {
         size : 64,
         paddingLeft: 100,
         paddingRight: 50,
-        fill : '#f3f0df'
+        fill : '#003837'
     }; 
 
-    var text1 = new Blotter.Text(elem, styleProperties);
-    var text2 = new Blotter.Text(textEl, styleProperties);
+    var text1 = new Blotter.Text('most compelling & and design-led game.', styleProperties);
+    //var text2 = new Blotter.Text(textEl, styleProperties);
     //var text3 = new Blotter.Text('game.', styleProperties);
     
     const material = new Blotter.LiquidDistortMaterial();
@@ -68,24 +150,24 @@ const MathUtils = {
         material.uniforms.uSeed.value = 0.1;
 
     const blotter = new Blotter(material, {
-        texts : [text1, text2]
+        texts : [text1]
     });
     
     const scope1 = blotter.forText(text1);
-    const scope2 = blotter.forText(text2);
+    //const scope2 = blotter.forText(text2);
    //const scope3 = blotter.forText(text3);
 
     
     scope1.appendTo(document.getElementById("content__text-liquid"));
-    scope2.appendTo(document.getElementById("content__text-liquid"));
+    //scope2.appendTo(document.getElementById("content__text-liquid"));
     //scope3.appendTo(document.getElementById("content__text-liquid"));
 
-   $( "#content__text-inner" ).remove();
-   $( "#content__text" ).remove();
+   //$( "#content__text-inner" ).remove();
+   //$( "#content__text" ).remove();
 
 
-    let lastMousePosition = {x: winsize.width/2, y: winsize.height/2};
-    let volatility = 0;
+   let lastMousePosition = {x: winsize.width/2, y: winsize.height/2};
+    let volatility = 0.05;
 
     const render = () => {
     const docScrolls = {left : body.scrollLeft + docEl.scrollLeft, top : body.scrollTop + docEl.scrollTop};
@@ -533,10 +615,12 @@ $('.scrollToTop').click(function() {
 };
 
 app.init = function() {
+    app.liquifyBackground();
+  
     app.randomisedLogos();
     app.smoothScrolling();
     app.loaderFadeOut();
-    app.createBlotterLiquify();
+    //app.createBlotterLiquify();
     //app.createBlotterRollingDistort();
     app.inviteBox();
     //app.navBar();

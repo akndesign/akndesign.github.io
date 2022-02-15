@@ -304,6 +304,7 @@ footer a {
 
 #manifesto-content .hero-title {
  text-align: left;
+ color: var(--color-emerald-green);
 }
 
 .hero-subtitle {
@@ -325,7 +326,7 @@ h1 {
 
 h2 {
   color: var(--color-headers);
-  font-size: var(--fs-20);
+  font-size: 4.75vw;
 }
 
 h3 {
@@ -383,7 +384,7 @@ hr {
 
 }
 
-.typed-out, .loading-content h1, h2 {
+.typed-out, .loading-content h1 {
   font-size: 1.75vw;
 }
 
@@ -577,6 +578,10 @@ ol li {
     font-size: var(--fs-28);
   }
 
+  h2 {
+    font-size: var(--fs-22);
+  }
+
   p {
     font-size: var(--fs-18);
 
@@ -645,9 +650,10 @@ ol li {
  */
 
 
-#testimonial { 
-  max-width: 1600px;
-  margin: 0 auto 100px auto;
+#testimonial {
+  background-color: var(--color-tomato); 
+  margin: 0 auto;
+  z-index: -1;
 }
 
 
@@ -678,8 +684,11 @@ ol li {
   margin: 5% auto;
 }
 
-.manifesto-header-svg {
-  transform: rotate(180deg);
+.bar {
+  background-size: 10% auto;
+   background-image: url(//cdn.shopify.com/s/files/1/0999/7114/files/bw_stripe_04d9694a-575f-47c8-920f-0d4b64cbea28_x1024@3x.png?v=1557170671);
+    height: 50px;
+    padding: 50px;
 }
 
 .design-header {
@@ -704,16 +713,33 @@ ol li {
 }
 
 
-.hero-block {
-  color: var(--color-white);
+#hero-block {
   float: right;
   font-size: 20px;
   max-width: 625px;
   padding: 20px;
-
-  font-weight: normal;
   margin: 0 auto;
-  z-index: -1;
+  margin-right: 5%;
+  text-rendering: optimizeLegibility;
+}
+
+#hero-block h2 {
+  color: var(--color-emerald-green);
+}
+
+.core-values {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  padding: 5px 0px 5px 0px;
+  font-size: var(--fs-30);
+  color: var(--color-emerald-green);
+  margin-top: 50px;
+  font-family: 'orpheuspro';
+  font-family: orpheuspro, serif;
+  font-weight: 400;
+  font-style: italic;
+  text-transform: uppercase;
+  text-align: center;
 }
 
 .circle-shape svg {
@@ -740,6 +766,34 @@ ol li {
   transform: rotate(-15deg);
   overflow: hidden;
 }
+
+.donut{
+  position: relative;
+  left: 21vw;
+ /* z-index: -1;*/
+  width: 20em;
+  overflow: hidden;
+}
+.hexagon {
+  position: relative;
+  left: 31vw;
+  /* z-index: -1; */
+  overflow-wrap: hidden;
+  width: 20em;
+  top: -47vw;
+  }
+
+.game-distorted {
+  position: relative;
+  left: 10vw;
+ /* z-index: -1;*/
+  width: 30em;
+  overflow: hidden;
+}
+
+
+
+
 
 
 .shape-15 {
@@ -780,13 +834,7 @@ body {
   height: 100vh;
 }
 
-canvas {
-  display: block;
-  text-align: left;
-  /* make the canvas wrapper fits the window */
-  margin: 0;
- 
-}
+
 
 .plane {
   /* define the size of your plane */
@@ -984,7 +1032,7 @@ canvas {
 
 .anthony-hero-subtitle {
     font-size: var(--fs-18);
-    color: var(--color-tomato);
+    color: var(--color-yellow);
     max-width: 80%;
     margin-top: 50px;
     font-family:'orpheuspro';
@@ -1095,8 +1143,10 @@ canvas {
 }
 
 
-.content__text-liquid canvas {
-
+#content__text-liquid canvas {
+  position: relative;
+  top: 31px;
+  left: -100px;
 }
 
 @media screen and (min-width: 1000px) {
@@ -1667,19 +1717,31 @@ canvas {
 
 
 #manifesto-2 {
+  color: var(--color-emerald-green);
+  position: relative;
+  /*background: var(--color-cream);*/
+}
 
-  background: var(--color-tomato);
+#canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: -1;
+}
+
+.background-gradient {
+  /*background-image: url('../img/gradient-2.jpg'); */
   opacity: 0.9;
-  background-image: url('../img/gradient-background.jpeg'); 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   text-align: center;
-  height: 150vh;
-
+  /*height: 200vh;*/
 }
-
 
 #manifesto {
     background-image: url('../img/background-for-manifesto-01-01.jpg');
@@ -1732,7 +1794,7 @@ canvas {
 
 .anthony {
   white-space: wrap;
-  color: #ee531c;
+  color: var(--color-yellow);
   z-index: 3;
 }
 
@@ -1744,7 +1806,7 @@ canvas {
 }
 
 #testimonial-small-quotes, #testimonial-small-quotes h4 {
-  color: var(--color-tomato);
+  color: var(--color-yellow);
   font-size: var(--fs-28);
 
 }
@@ -2056,7 +2118,7 @@ canvas {
   }
 }
 
-.hero-block {
+#hero-block {
     text-align: center;
 }
 
@@ -2072,7 +2134,7 @@ canvas {
 @media screen and (min-width: 751px) {
 
 
-.hero-block {
+#hero-block {
     text-align: justify;
 }
 
