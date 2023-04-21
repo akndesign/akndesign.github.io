@@ -1870,7 +1870,7 @@ body {
   .main-content {
     padding-left: var(--sp-2b);
     padding-right: var(--sp-2b);
-    height: 70vh;
+    height: 100vh;
   }
 }
 
