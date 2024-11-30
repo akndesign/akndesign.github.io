@@ -19,7 +19,7 @@
     "gulp-babel": "^7.0.1",
     "gulp-sass": "^4.1.0",
     "hint": "^6.0.6",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "stickybits": "^3.7.7"
   },
   "bugs": {
